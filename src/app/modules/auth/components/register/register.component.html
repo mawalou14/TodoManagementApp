@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container border-2 border-black">
   <div class="screen">
     <div class="screen__content">
       <form class="login">
@@ -12,15 +12,35 @@
         </div>
         <div class="login__field">
           <i class="login__icon bi bi-key-fill"></i>
-          <input type="password" class="login__input" placeholder="Password" />
+          <input
+            [type]="passwordFieldTypeText ? 'text' : 'password'"
+            class="login__input"
+            placeholder="Password"
+          />
+          <i
+            class="login__icon cursor-pointer bi"
+            [ngClass]="{
+              'bi-eye-slash-fill': !passwordFieldTypeText,
+              'bi-eye-fill': passwordFieldTypeText
+            }"
+            (click)="togglePasswordFieldType()"
+          ></i>
         </div>
         <div class="login__field">
           <i class="login__icon bi bi-lock-fill"></i>
           <input
-            type="password"
+            [type]="confirmPasswordFieldTypeText ? 'text' : 'password'"
             class="login__input"
             placeholder="Confirm Password"
           />
+          <i
+            class="login__icon-white cursor-pointer bi"
+            [ngClass]="{
+              'bi-eye-slash-fill': !confirmPasswordFieldTypeText,
+              'bi-eye-fill': confirmPasswordFieldTypeText
+            }"
+            (click)="toggleConfirmPasswordFieldType()"
+          ></i>
         </div>
         <button class="button login__submit">
           <span class="button__text">Register Now</span>

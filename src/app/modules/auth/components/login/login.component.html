@@ -9,10 +9,18 @@
         <div class="login__field">
           <i class="login__icon bi bi-lock-fill"></i>
           <input
-            type="password"
+            [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
             placeholder="Your Password"
           />
+          <i
+            class="login__icon hover:cursor-pointer bi"
+            [ngClass]="{
+            'bi-eye-slash-fill': !passwordFieldTypeText,
+            'bi-eye-fill': passwordFieldTypeText,
+          }"
+            (click)="togglePasswordFieldType()"
+          ></i>
         </div>
         <button class="button login__submit">
           <span class="button__text">Log In Now</span>
