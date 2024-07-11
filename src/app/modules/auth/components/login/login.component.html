@@ -7,6 +7,7 @@
           <input
             type="email"
             class="login__input"
+            required
             formControlName="email"
             placeholder="{{ 'login.yourEmail' | transloco }}"
           />
@@ -17,6 +18,8 @@
             [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
             formControlName="password"
+            required
+            minlength="6"
             placeholder="{{ 'login.yourPassword' | transloco }}"
           />
           <i
@@ -27,6 +30,19 @@
           }"
             (click)="togglePasswordFieldType()"
           ></i>
+        </div>
+        <div
+          class="error-box"
+          *ngIf="
+            !loginForm.get('password').valid &&
+            loginForm.get('password').touched
+          "
+        >
+          <span
+            *ngIf="loginForm.get('password').errors?.['pattern']"
+            class="error-text"
+            >Example:<b>123@Qwe</b></span
+          >
         </div>
         <button
           class="button login__submit"

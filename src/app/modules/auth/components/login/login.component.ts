@@ -6,13 +6,14 @@ import { Subscription } from 'rxjs';
 import { LoginForm } from '../../models/login';
 import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
 import { TranslocoService } from '@jsverse/transloco';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   passwordFieldTypeText: boolean = false;
   private formBuilder = inject(NonNullableFormBuilder);
   private router = inject(Router);
@@ -22,13 +23,11 @@ export class LoginComponent {
   loginSubscription!: Subscription;
 
   public loginForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.email]],
     password: [
       '',
       [
-        Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20),
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,20}$'),
       ],
     ],
@@ -55,5 +54,11 @@ export class LoginComponent {
         );
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.loginSubscription) {
+      this.loginSubscription.unsubscribe();
+    }
   }
 }
