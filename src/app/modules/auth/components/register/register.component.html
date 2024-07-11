@@ -1,12 +1,14 @@
 <div class="container border-2 border-black">
   <div class="screen">
     <div class="screen__content">
-      <form class="login">
+      <form class="login" [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="login__field">
           <i class="login__icon bi bi-person-fill"></i>
           <input
             type="text"
             class="login__input"
+            required
+            formControlName="fullName"
             placeholder="{{ 'register.name' | transloco }}"
           />
         </div>
@@ -15,6 +17,8 @@
           <input
             type="email"
             class="login__input"
+            required
+            formControlName="email"
             placeholder="{{ 'login.yourEmail' | transloco }}"
           />
         </div>
@@ -23,6 +27,9 @@
           <input
             [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
+            formControlName="password"
+            required
+            minlength="6"
             placeholder="{{ 'login.yourPassword' | transloco }}"
           />
           <i
@@ -39,6 +46,9 @@
           <input
             [type]="confirmPasswordFieldTypeText ? 'text' : 'password'"
             class="login__input"
+            formControlName="confirmPassword"
+            required
+            minlength="6"
             placeholder="{{ 'register.confirmPassword' | transloco }}"
           />
           <i
@@ -50,7 +60,12 @@
             (click)="toggleConfirmPasswordFieldType()"
           ></i>
         </div>
-        <button class="button login__submit">
+        <button
+          class="button login__submit"
+          type="submit"
+          [disabled]="registerForm.invalid"
+          [class.opacity-50]="registerForm.invalid"
+        >
           <span class="button__text">{{
             "register.registerNow" | transloco
           }}</span>

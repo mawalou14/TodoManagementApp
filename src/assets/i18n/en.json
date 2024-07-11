@@ -20,7 +20,7 @@
     "name": "Name",
     "confirmPassword": "Confirm Password",
     "registerNow": "Register Now",
-    "registerSuccess": "Register Successfully",
+    "registerSuccess": "Registered Successfully",
     "anErrOccured": "An Error Occured"
   }
 }
