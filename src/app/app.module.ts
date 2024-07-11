@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
 import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loading/loading.interceptor.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,18 @@ import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loa
     NgbModule,
     HttpClientModule,
     TranslocoRootModule,
+    ToastrModule.forRoot({
+      maxOpened: 3,
+      autoDismiss: true,
+      timeOut: 5000,
+      closeButton: true,
+      extendedTimeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      enableHtml: true,
+      toastClass: 'toast-top-center',
+      newestOnTop: true,
+    }),
   ],
   providers: [
     {
