@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
-import { TokenInterceptorInterceptor } from './modules/shared/interceptors/token.interceptor.interceptor';
+import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
+import { HostInterceptorInterceptor } from './modules/shared/interceptors/Host/host.interceptor.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,11 @@ import { TokenInterceptorInterceptor } from './modules/shared/interceptors/token
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HostInterceptorInterceptor,
       multi: true,
     },
   ],
