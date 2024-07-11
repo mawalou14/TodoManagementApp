@@ -1,12 +1,13 @@
 <div class="container">
   <div class="screen">
     <div class="screen__content">
-      <form class="login">
+      <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="login__field">
           <i class="login__icon bi bi-envelope-at-fill"></i>
           <input
             type="email"
             class="login__input"
+            formControlName="email"
             placeholder="{{ 'login.yourEmail' | transloco }}"
           />
         </div>
@@ -15,6 +16,7 @@
           <input
             [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
+            formControlName="password"
             placeholder="{{ 'login.yourPassword' | transloco }}"
           />
           <i
@@ -26,7 +28,12 @@
             (click)="togglePasswordFieldType()"
           ></i>
         </div>
-        <button class="button login__submit">
+        <button
+          class="button login__submit"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          [class.opacity-50]="loginForm.invalid"
+        >
           <span class="button__text">{{ "login.loginNow" | transloco }}</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>

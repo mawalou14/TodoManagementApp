@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environments';
 })
 export class AuthService {
   private httpClient = inject(HttpClient);
-  private url = environment.baseUrl;
+  private url = environment.baseUrl + '/auth';
 
   login(loginForm: LoginForm): Observable<AuthResponse> {
     return this.httpClient

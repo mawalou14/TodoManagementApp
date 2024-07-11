@@ -10,7 +10,10 @@
     "nameIsRequired": "Le nom est requis",
     "passwordIsRequired": "Le mot de passe est requis",
     "confirmPasswordIsRequired": "La confirmation du mot de passe est requise",
-    "emailIsRequired": "L'adresse e-mail est requise"
+    "emailIsRequired": "L'adresse e-mail est requise",
+    "loading": "Chargement",
+    "success": "Succés",
+    "error": "Erreur"
   },
 
   "register": {

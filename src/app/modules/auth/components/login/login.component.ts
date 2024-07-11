@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
 import { LoginForm } from '../../models/login';
 import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
   private router = inject(Router);
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
+  private translocoService = inject(TranslocoService);
   loginSubscription!: Subscription;
 
   public loginForm = this.formBuilder.group({
@@ -40,10 +42,17 @@ export class LoginComponent {
     const loginValue: LoginForm = this.loginForm.value as LoginForm;
     this.loginSubscription = this.authService.login(loginValue).subscribe({
       next: (response) => {
-        this.notificationService.showSuccess('Success', 'Login Successfull');
+        this.notificationService.showSuccess(
+          this.translocoService.translate('login.loginSuccess'),
+          this.translocoService.translate('login.success')
+        );
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err.error.message);
+        this.notificationService.showError(
+          this.translocoService.translate('login.InvalidCredentials'),
+          this.translocoService.translate('login.error')
+        );
       },
     });
   }
