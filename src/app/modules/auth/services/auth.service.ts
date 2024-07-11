@@ -4,7 +4,7 @@ import { LoginForm } from '../models/login';
 import { AuthResponse } from '../models/authResponse';
 import { Observable, tap } from 'rxjs';
 import { RegisterForm } from '../models/register';
-import { environment } from '../../environments/environments';
+import { environment } from '../../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
