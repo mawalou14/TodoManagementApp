@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
 import { HostInterceptorInterceptor } from './modules/shared/interceptors/Host/host.interceptor.interceptor';
+import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loading/loading.interceptor.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,11 @@ import { HostInterceptorInterceptor } from './modules/shared/interceptors/Host/h
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HostInterceptorInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptorInterceptor,
       multi: true,
     },
   ],
