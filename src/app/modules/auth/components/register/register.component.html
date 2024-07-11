@@ -41,6 +41,19 @@
             (click)="togglePasswordFieldType()"
           ></i>
         </div>
+        <div
+          class="error-box"
+          *ngIf="
+            !registerForm.get('password').valid &&
+            registerForm.get('password').touched
+          "
+        >
+          <span
+            *ngIf="registerForm.get('password').errors?.['pattern']"
+            class="error-text"
+            >Example:<b>123@Qwe</b></span
+          >
+        </div>
         <div class="login__field">
           <i class="login__icon bi bi-lock-fill"></i>
           <input
