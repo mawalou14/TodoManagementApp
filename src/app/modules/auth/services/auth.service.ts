@@ -4,13 +4,14 @@ import { LoginForm } from '../models/login';
 import { AuthResponse } from '../models/authResponse';
 import { Observable, tap } from 'rxjs';
 import { RegisterForm } from '../models/register';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private httpClient = inject(HttpClient);
-  private url = 'auth';
+  private url = environment.baseUrl;
 
   login(loginForm: LoginForm): Observable<AuthResponse> {
     return this.httpClient
