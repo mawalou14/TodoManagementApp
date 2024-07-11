@@ -1,1 +1,23 @@
-{}
+{
+  "login": {
+    "yourEmail": "Your Email",
+    "yourPassword": "Your Password",
+    "loginNow": "Log In Now",
+    "register": "Register",
+    "login": "Login",
+    "loginSuccess": "Logged in Successfully",
+    "InvalidCredentials": "Please, Reverify your credentials",
+    "nameIsRequired": "Name is required",
+    "passwordIsRequired": "Password is required",
+    "confirmPasswordIsRequired": "Confrim Password is required",
+    "emailIsRequired": "Email is required"
+  },
+
+  "register": {
+    "name": "Name",
+    "confirmPassword": "Confirm Password",
+    "registerNow": "Register Now",
+    "registerSuccess": "Register Successfully",
+    "anErrOccured": "An Error Occured"
+  }
+}

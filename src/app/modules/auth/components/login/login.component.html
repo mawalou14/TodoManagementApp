@@ -4,14 +4,18 @@
       <form class="login">
         <div class="login__field">
           <i class="login__icon bi bi-envelope-at-fill"></i>
-          <input type="email" class="login__input" placeholder="Your Email" />
+          <input
+            type="email"
+            class="login__input"
+            placeholder="{{ 'login.yourEmail' | transloco }}"
+          />
         </div>
         <div class="login__field">
           <i class="login__icon bi bi-lock-fill"></i>
           <input
             [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
-            placeholder="Your Password"
+            placeholder="{{ 'login.yourPassword' | transloco }}"
           />
           <i
             class="login__icon hover:cursor-pointer bi"
@@ -23,12 +27,14 @@
           ></i>
         </div>
         <button class="button login__submit">
-          <span class="button__text">Log In Now</span>
+          <span class="button__text">{{ "login.loginNow" | transloco }}</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
       </form>
       <div class="social-login">
-        <h3><a routerLink="/auth/register">Register</a></h3>
+        <h3>
+          <a routerLink="/auth/register">{{ "login.register" | transloco }}</a>
+        </h3>
       </div>
     </div>
     <div class="screen__background">

@@ -29,11 +29,6 @@ import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loa
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HostInterceptorInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptorInterceptor,
       multi: true,
     },

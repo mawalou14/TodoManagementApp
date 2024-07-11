@@ -4,18 +4,26 @@
       <form class="login">
         <div class="login__field">
           <i class="login__icon bi bi-person-fill"></i>
-          <input type="text" class="login__input" placeholder="Name" />
+          <input
+            type="text"
+            class="login__input"
+            placeholder="{{ 'register.name' | transloco }}"
+          />
         </div>
         <div class="login__field">
           <i class="login__icon bi bi-envelope-at-fill"></i>
-          <input type="email" class="login__input" placeholder="Email" />
+          <input
+            type="email"
+            class="login__input"
+            placeholder="{{ 'login.yourEmail' | transloco }}"
+          />
         </div>
         <div class="login__field">
           <i class="login__icon bi bi-key-fill"></i>
           <input
             [type]="passwordFieldTypeText ? 'text' : 'password'"
             class="login__input"
-            placeholder="Password"
+            placeholder="{{ 'login.yourPassword' | transloco }}"
           />
           <i
             class="login__icon cursor-pointer bi"
@@ -31,7 +39,7 @@
           <input
             [type]="confirmPasswordFieldTypeText ? 'text' : 'password'"
             class="login__input"
-            placeholder="Confirm Password"
+            placeholder="{{ 'register.confirmPassword' | transloco }}"
           />
           <i
             class="login__icon-white cursor-pointer bi"
@@ -43,12 +51,16 @@
           ></i>
         </div>
         <button class="button login__submit">
-          <span class="button__text">Register Now</span>
+          <span class="button__text">{{
+            "register.registerNow" | transloco
+          }}</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
       </form>
       <div class="social-login">
-        <h3><a routerLink="/auth/login">Login</a></h3>
+        <h3>
+          <a routerLink="/auth/login">{{ "login.login" | transloco }}</a>
+        </h3>
       </div>
     </div>
     <div class="screen__background">

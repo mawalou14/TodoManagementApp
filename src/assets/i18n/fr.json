@@ -1,1 +1,23 @@
-{}
+{
+  "login": {
+    "yourEmail": "Votre Adresse E-mail",
+    "yourPassword": "Votre mot de passe",
+    "loginNow": "Se connecter",
+    "register": "S'inscrire",
+    "login": "Se Connecter",
+    "loginSuccess": "Connexion réussie",
+    "InvalidCredentials": "S'il vous plaît, vérifiez vos références",
+    "nameIsRequired": "Le nom est requis",
+    "passwordIsRequired": "Le mot de passe est requis",
+    "confirmPasswordIsRequired": "La confirmation du mot de passe est requise",
+    "emailIsRequired": "L'adresse e-mail est requise"
+  },
+
+  "register": {
+    "name": "Nom",
+    "confirmPassword": "Confirmez le mot de passe",
+    "registerNow": "S'inscrire",
+    "registerSuccess": "Inscription réussie",
+    "anErrOccured": "Une erreur s'est produite"
+  }
+}
