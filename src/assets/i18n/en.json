@@ -22,5 +22,9 @@
     "registerNow": "Register Now",
     "registerSuccess": "Registered Successfully",
     "anErrOccured": "An Error Occured"
+  },
+
+  "todo": {
+    "myTodo": "My Todos"
   }
 }

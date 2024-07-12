@@ -57,6 +57,15 @@ export class RegisterComponent implements OnDestroy {
     }
   );
 
+  ngOnInit(): void {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    if (selectedLanguage) {
+      this.translocoService.setActiveLang(selectedLanguage);
+    } else {
+      this.translocoService.setActiveLang('fr');
+    }
+  }
+
   register() {
     if (this.registerForm.valid) {
       const registerValue: RegisterForm = this.registerForm
@@ -69,7 +78,7 @@ export class RegisterComponent implements OnDestroy {
               this.translocoService.translate('register.registerSuccess'),
               this.translocoService.translate('login.success')
             );
-            this.router.navigate(['/todos']);
+            this.router.navigate(['/main']);
           },
           error: (err) => {
             // console.log(err.error.message);

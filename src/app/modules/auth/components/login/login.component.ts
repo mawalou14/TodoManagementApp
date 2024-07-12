@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -14,7 +14,7 @@ import { LoadinServiceService } from 'src/app/modules/shared/services/loadingSer
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
   passwordFieldTypeText: boolean = false;
   private formBuilder = inject(NonNullableFormBuilder);
   private router = inject(Router);
@@ -35,6 +35,15 @@ export class LoginComponent implements OnDestroy {
     ],
   });
 
+  ngOnInit(): void {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    if (selectedLanguage) {
+      this.translocoService.setActiveLang(selectedLanguage);
+    } else {
+      this.translocoService.setActiveLang('fr');
+    }
+  }
+
   togglePasswordFieldType() {
     this.passwordFieldTypeText = !this.passwordFieldTypeText;
   }
@@ -47,7 +56,7 @@ export class LoginComponent implements OnDestroy {
           this.translocoService.translate('login.loginSuccess'),
           this.translocoService.translate('login.success')
         );
-        this.router.navigate(['/todos']);
+        this.router.navigate(['/main']);
       },
       error: (err) => {
         // console.log(err.error.message);

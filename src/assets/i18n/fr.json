@@ -22,5 +22,9 @@
     "registerNow": "S'inscrire",
     "registerSuccess": "Inscription réussie",
     "anErrOccured": "Une erreur s'est produite"
+  },
+
+  "todo": {
+    "myTodo": "Mes Todos"
   }
 }
