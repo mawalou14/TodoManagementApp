@@ -45,6 +45,7 @@ export class LoginComponent implements OnDestroy {
           this.translocoService.translate('login.loginSuccess'),
           this.translocoService.translate('login.success')
         );
+        this.router.navigate(['/todos']);
       },
       error: (err) => {
         // console.log(err.error.message);

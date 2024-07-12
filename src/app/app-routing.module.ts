@@ -8,6 +8,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((module) => module.AuthModule),
   },
+  {
+    path: 'todos',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((module) => module.HomeModule),
+  },
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -14,6 +15,7 @@ import { TranslocoModule } from '@jsverse/transloco';
     AuthRoutingModule,
     ReactiveFormsModule,
     TranslocoModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class AuthModule {}

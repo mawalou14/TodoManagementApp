@@ -44,14 +44,20 @@
             >Example:<b>123@Qwe</b></span
           >
         </div>
-        <button
+        <!-- <button
           class="button login__submit"
           type="submit"
           [disabled]="loginForm.invalid"
           [class.opacity-50]="loginForm.invalid"
         >
+          <mat-spinner class="spinner"></mat-spinner>
           <span class="button__text">{{ "login.loginNow" | transloco }}</span>
-          <i class="button__icon fas fa-chevron-right"></i>
+        </button> -->
+        <button class="button login__submit">
+          <mat-spinner class="spinner"></mat-spinner>
+          <span class="button__text"
+            >{{ "login.loading" | transloco }} ...</span
+          >
         </button>
       </form>
       <div class="social-login">
