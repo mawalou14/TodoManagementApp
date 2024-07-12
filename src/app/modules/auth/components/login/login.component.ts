@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (selectedLanguage) {
       this.translocoService.setActiveLang(selectedLanguage);
     } else {
-      this.translocoService.setActiveLang('fr');
+      this.translocoService.setActiveLang(selectedLanguage);
     }
   }
 

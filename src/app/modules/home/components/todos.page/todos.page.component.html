@@ -1,5 +1,5 @@
 <div class="page-container sm:p-0 md:p-2">
-  <mat-toolbar class="header mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <mat-toolbar class="header mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
     <span class="font-bold">{{ "todo.myTodo" | transloco }}</span>
     <span class="example-spacer"></span>
     <select
@@ -18,7 +18,9 @@
     <span
       class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-500"
     >
-      <span class="text-sm font-medium leading-none text-white">TW</span>
+      <span class="text-sm font-medium leading-none text-white">{{
+        userFullName
+      }}</span>
     </span>
   </mat-toolbar>
 </div>
