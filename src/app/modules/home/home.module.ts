@@ -8,7 +8,6 @@ import { AddEditTodoModalComponent } from './modal/add-edit-todo.modal/add-edit-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { SharedModule } from '../shared/shared.module';
     MatToolbarModule,
     FormsModule,
     TranslocoModule,
-    SharedModule,
   ],
 })
 export class HomeModule {}

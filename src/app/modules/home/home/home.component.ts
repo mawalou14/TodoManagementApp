@@ -1,11 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { LoadinServiceService } from '../../shared/services/loadingService/loadin.service.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  loadingService = inject(LoadinServiceService);
-}
+export class HomeComponent {}

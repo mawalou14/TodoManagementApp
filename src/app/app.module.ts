@@ -10,9 +10,10 @@ import { TranslocoRootModule } from './transloco-root.module';
 import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
 import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loading/loading.interceptor.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { GeneralLoadingComponent } from './modules/shared/components/general-loading/general-loading.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GeneralLoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
