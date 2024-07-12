@@ -7,6 +7,7 @@ import { LoginForm } from '../../models/login';
 import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { OnDestroy } from '@angular/core';
+import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnDestroy {
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
+  public loadingService = inject(LoadinServiceService);
   loginSubscription!: Subscription;
 
   public loginForm = this.formBuilder.group({

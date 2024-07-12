@@ -91,11 +91,17 @@
           type="submit"
           [disabled]="registerForm.invalid"
           [class.opacity-50]="registerForm.invalid"
+          *ngIf="!loadingService.isLoading"
         >
           <span class="button__text">{{
             "register.registerNow" | transloco
           }}</span>
-          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+        <button class="button login__submit" *ngIf="loadingService.isLoading">
+          <mat-spinner class="spinner"></mat-spinner>
+          <span class="button__text"
+            >{{ "login.loading" | transloco }} ...</span
+          >
         </button>
       </form>
       <div class="social-login">

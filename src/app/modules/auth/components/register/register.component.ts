@@ -7,6 +7,7 @@ import { NotificationService } from 'src/app/modules/shared/services/notificatio
 import { AuthService } from '../../services/auth.service';
 import { RegisterForm } from '../../models/register';
 import { confirmPasswordValidator } from '../../custom/confirmPasswordValidator';
+import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnDestroy {
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
+  public loadingService = inject(LoadinServiceService);
   registerSubscription!: Subscription;
   passwordFieldTypeText: boolean = false;
   confirmPasswordFieldTypeText: boolean = false;

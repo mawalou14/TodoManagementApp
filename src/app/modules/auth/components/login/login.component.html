@@ -44,16 +44,16 @@
             >Example:<b>123@Qwe</b></span
           >
         </div>
-        <!-- <button
+        <button
           class="button login__submit"
           type="submit"
           [disabled]="loginForm.invalid"
           [class.opacity-50]="loginForm.invalid"
+          *ngIf="!loadingService.isLoading"
         >
-          <mat-spinner class="spinner"></mat-spinner>
           <span class="button__text">{{ "login.loginNow" | transloco }}</span>
-        </button> -->
-        <button class="button login__submit">
+        </button>
+        <button class="button login__submit" *ngIf="loadingService.isLoading">
           <mat-spinner class="spinner"></mat-spinner>
           <span class="button__text"
             >{{ "login.loading" | transloco }} ...</span
