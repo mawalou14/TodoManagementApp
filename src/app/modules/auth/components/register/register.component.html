@@ -73,6 +73,19 @@
             (click)="toggleConfirmPasswordFieldType()"
           ></i>
         </div>
+        <div
+          class="error-box"
+          *ngIf="
+            !registerForm.get('confirmPassword').valid &&
+            registerForm.get('confirmPassword').touched
+          "
+        >
+          <span
+            *ngIf="registerForm.get('confirmPassword').errors?.['mustMatch']"
+            class="error-text"
+            >Must match the above<b>password</b></span
+          >
+        </div>
         <button
           class="button login__submit"
           type="submit"
