@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
 import { GeneralLoadingComponent } from '../shared/components/general-loading/general-loading.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GeneralLoadingComponent } from '../shared/components/general-loading/ge
     ProfilePageComponent,
     AddEditTodoModalComponent,
     GeneralLoadingComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,

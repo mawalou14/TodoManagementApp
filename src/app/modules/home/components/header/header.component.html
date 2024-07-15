@@ -1,0 +1,24 @@
+<mat-toolbar class="header">
+  <span class="font-bold">{{ "todo.myTodo" | transloco }}</span>
+  <span class="example-spacer"></span>
+  <select
+    class="select"
+    [(ngModel)]="currentLang"
+    (ngModelChange)="changeLanguage($event)"
+  >
+    <option
+      *ngFor="let lang of supportedLangs"
+      [ngValue]="lang"
+      [selected]="currentLang === lang"
+    >
+      {{ lang === "en" ? "En" : "Fr" }}
+    </option>
+  </select>
+  <span
+    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-500"
+  >
+    <span class="text-sm font-medium leading-none text-white">{{
+      userFullName
+    }}</span>
+  </span>
+</mat-toolbar>

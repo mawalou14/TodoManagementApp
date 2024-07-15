@@ -1,26 +1,5 @@
-<div class="page-container sm:p-0 md:p-2">
-  <mat-toolbar class="header mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
-    <span class="font-bold">{{ "todo.myTodo" | transloco }}</span>
-    <span class="example-spacer"></span>
-    <select
-      class="select"
-      [(ngModel)]="currentLang"
-      (ngModelChange)="changeLanguage($event)"
-    >
-      <option
-        *ngFor="let lang of supportedLangs"
-        [ngValue]="lang"
-        [selected]="currentLang === lang"
-      >
-        {{ lang === "en" ? "En" : "Fr" }}
-      </option>
-    </select>
-    <span
-      class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-500"
-    >
-      <span class="text-sm font-medium leading-none text-white">{{
-        userFullName
-      }}</span>
-    </span>
-  </mat-toolbar>
+<div
+  class="page-container sm:p-0 md:p-2 mx-auto max-w-6xl px-2 sm:px-6 lg:px-8 flex justify-center"
+>
+  <app-header></app-header>
 </div>
