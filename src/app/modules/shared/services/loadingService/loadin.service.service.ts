@@ -10,10 +10,6 @@ export class LoadinServiceService {
     this.loading = loading;
   }
 
-  stopLoading(loading: boolean) {
-    this.loading = loading;
-  }
-
   getLoading(): boolean {
     return this.loading;
   }

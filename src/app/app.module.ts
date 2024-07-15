@@ -8,12 +8,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
-import { LoadingInterceptorInterceptor } from './modules/shared/interceptors/Loading/loading.interceptor.interceptor';
 import { ToastrModule } from 'ngx-toastr';
-import { GeneralLoadingComponent } from './modules/shared/components/general-loading/general-loading.component';
 
 @NgModule({
-  declarations: [AppComponent, GeneralLoadingComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,11 +35,6 @@ import { GeneralLoadingComponent } from './modules/shared/components/general-loa
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptorInterceptor,
       multi: true,
     },
   ],

@@ -7,7 +7,6 @@ import { LoginForm } from '../../models/login';
 import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { OnDestroy } from '@angular/core';
-import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +20,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
-  public loadingService = inject(LoadinServiceService);
   loginSubscription!: Subscription;
+  public isLoading = false;
 
   public loginForm = this.formBuilder.group({
     email: ['', [Validators.email]],
@@ -50,8 +49,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login() {
     const loginValue: LoginForm = this.loginForm.value as LoginForm;
+    this.isLoading = true;
     this.loginSubscription = this.authService.login(loginValue).subscribe({
       next: (response) => {
+        this.isLoading = false;
         this.notificationService.showSuccess(
           this.translocoService.translate('login.loginSuccess'),
           this.translocoService.translate('login.success')
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigate(['/main']);
       },
       error: (err) => {
+        this.isLoading = false;
         // console.log(err.error.message);
         this.notificationService.showError(
           this.translocoService.translate('login.InvalidCredentials'),

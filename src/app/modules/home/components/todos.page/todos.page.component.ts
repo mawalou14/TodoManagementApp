@@ -15,6 +15,7 @@ export class TodosPageComponent implements OnInit {
   userFullName = 'Guest';
 
   ngOnInit(): void {
+    this.loadingService.setLoading(false);
     const selectedLanguage = localStorage.getItem('selectedLanguage');
     if (selectedLanguage) {
       this.translocoService.setActiveLang(selectedLanguage);
@@ -42,12 +43,13 @@ export class TodosPageComponent implements OnInit {
   }
 
   changeLanguage(lang: string) {
-    this.loadingService.showLoader();
+    this.loadingService.setLoading(true);
+    this.loadingService.setLoading(true);
     setTimeout(() => {
       localStorage.setItem('selectedLanguage', lang);
       this.translocoService.setActiveLang(lang);
       this.currentLang = lang;
-      this.loadingService.hideLoader();
+      this.loadingService.setLoading(false);
     }, 1000);
   }
 }

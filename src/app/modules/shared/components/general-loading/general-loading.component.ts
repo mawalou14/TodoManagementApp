@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { LoadinServiceService } from '../../services/loadingService/loadin.service.service';
 
 @Component({
   selector: 'app-general-loading',
-  template: '<div class="lds-facebook"><div></div><div></div><div></div></div>',
+  templateUrl: './general-loading.component.html',
   styleUrls: ['./general-loading.component.css'],
 })
-export class GeneralLoadingComponent {}
+export class GeneralLoadingComponent {
+  public loadingService = inject(LoadinServiceService);
+}

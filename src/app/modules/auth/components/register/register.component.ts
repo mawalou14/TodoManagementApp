@@ -20,7 +20,7 @@ export class RegisterComponent implements OnDestroy {
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
-  public loadingService = inject(LoadinServiceService);
+  public isLoading = false;
   registerSubscription!: Subscription;
   passwordFieldTypeText: boolean = false;
   confirmPasswordFieldTypeText: boolean = false;
@@ -68,12 +68,14 @@ export class RegisterComponent implements OnDestroy {
 
   register() {
     if (this.registerForm.valid) {
+      this.isLoading = true;
       const registerValue: RegisterForm = this.registerForm
         .value as unknown as RegisterForm;
       this.registerSubscription = this.authService
         .register(registerValue)
         .subscribe({
           next: (response) => {
+            this.isLoading = false;
             this.notificationService.showSuccess(
               this.translocoService.translate('register.registerSuccess'),
               this.translocoService.translate('login.success')
@@ -81,6 +83,7 @@ export class RegisterComponent implements OnDestroy {
             this.router.navigate(['/main']);
           },
           error: (err) => {
+            this.isLoading = false;
             // console.log(err.error.message);
             this.notificationService.showError(
               this.translocoService.translate('register.anErrOccured'),

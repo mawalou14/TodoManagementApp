@@ -49,11 +49,11 @@
           type="submit"
           [disabled]="loginForm.invalid"
           [class.opacity-50]="loginForm.invalid"
-          *ngIf="!loadingService.isLoading"
+          *ngIf="!isLoading"
         >
           <span class="button__text">{{ "login.loginNow" | transloco }}</span>
         </button>
-        <button class="button login__submit" *ngIf="loadingService.isLoading">
+        <button class="button login__submit" *ngIf="isLoading">
           <mat-spinner class="spinner"></mat-spinner>
           <span class="button__text"
             >{{ "login.loading" | transloco }} ...</span

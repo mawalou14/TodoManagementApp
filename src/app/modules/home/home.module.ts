@@ -8,6 +8,7 @@ import { AddEditTodoModalComponent } from './modal/add-edit-todo.modal/add-edit-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
+import { GeneralLoadingComponent } from '../shared/components/general-loading/general-loading.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TranslocoModule } from '@jsverse/transloco';
     TodosPageComponent,
     ProfilePageComponent,
     AddEditTodoModalComponent,
+    GeneralLoadingComponent,
   ],
   imports: [
     CommonModule,
