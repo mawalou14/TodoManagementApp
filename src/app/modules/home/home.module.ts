@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { TodoBoardsComponent } from './components/todo.boards/todo.boards.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     AddEditTodoModalComponent,
     GeneralLoadingComponent,
     HeaderComponent,
+    TodoBoardsComponent,
   ],
   imports: [
     CommonModule,
