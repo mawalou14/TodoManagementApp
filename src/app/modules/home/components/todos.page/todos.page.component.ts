@@ -1,5 +1,5 @@
 import { TranslocoService } from '@jsverse/transloco';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 
 @Component({
@@ -7,4 +7,6 @@ import { LoadinServiceService } from 'src/app/modules/shared/services/loadingSer
   templateUrl: './todos.page.component.html',
   styleUrls: ['./todos.page.component.css'],
 })
-export class TodosPageComponent {}
+export class TodosPageComponent {
+  readonly panelOpenState = signal(false);
+}

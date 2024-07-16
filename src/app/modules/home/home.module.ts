@@ -11,6 +11,8 @@ import { TranslocoModule } from '@jsverse/transloco';
 import { GeneralLoadingComponent } from '../shared/components/general-loading/general-loading.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FormsModule,
     TranslocoModule,
     DragDropModule,
+    MatChipsModule,
+    MatExpansionModule,
   ],
 })
 export class HomeModule {}
