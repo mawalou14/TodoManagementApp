@@ -1,11 +1,14 @@
 
 .page-container {
   width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
   max-width: 95rem;
-  height: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 app-header {
@@ -17,19 +20,19 @@ app-header {
 .board-card {
   border-radius: 8px;
   width: 100%;
-  height: auto;
+  height: fit-content;
   padding: 25px 25px;
   margin-top: 20px;
   max-width: 450px;
-  max-height: 86vh;
+  max-height: 82vh;
   overflow-y: auto;
 }
 
 .todo {
-  background-color: #cae3ff;
+  background-color: #d4ccff;
 }
 .complete {
-  background-color: #5fdfab;
+  background-color: #cae3ff;
 }
 .blocked {
   background-color: #fac6c5;
@@ -48,13 +51,30 @@ app-header {
 }
 
 .new-todo {
-  color: #064b9c;
+  color: #452dae;
+}
+
+.completed-todo {
+  color: #1257a3;
+}
+
+.blocked-todo {
+  color: #d23633;
 }
 
 .toto-title {
-  color: #064b9c;
+  color: indigo;
   letter-spacing: 0.5px;
   text-align: left;
+}
+
+.toto-title-blocked {
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.add-new, .plus-icon {
+  color: #5632e7;
 }
 
 .priority {
@@ -66,8 +86,8 @@ app-header {
 }
 
 .new-box  {
-  border: 2px solid #3f6ea8;
-  background-color: #d8ecfe;
+  border: 2px solid #452dae;
+  background-color: #e0dafb;
   border-style: dashed;
   display: flex;
   justify-content: center;
@@ -80,7 +100,7 @@ app-header {
 }
 
 .new-box:hover {
-  background-color: #c1deff;
+  background-color: #cdc3fa;
 }
 
 .new-box:hover span {

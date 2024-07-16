@@ -89,7 +89,7 @@ export class TodoService {
       Description: 'Workout session',
       TargetedTime: new Date('2024-07-18T07:00:00'),
       Priority: 2,
-      Status: 3,
+      Status: 2,
       CreatedAt: new Date('2024-07-01T16:00:00'),
       UserId: 'user9',
     },

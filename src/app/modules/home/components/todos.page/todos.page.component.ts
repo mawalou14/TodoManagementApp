@@ -20,6 +20,18 @@ export class TodosPageComponent {
     }
   );
 
+  completedTasks: GetTodosReponse = this.todoService.todos.filter(
+    (obj: { Status: number }) => {
+      return obj.Status === 2;
+    }
+  );
+
+  blockedTasks: GetTodosReponse = this.todoService.todos.filter(
+    (obj: { Status: number }) => {
+      return obj.Status === 3;
+    }
+  );
+
   drop(event: CdkDragDrop<GetTodosReponse>) {
     // belolow are some info we get during the event
     const draggedItemData = event.item.data;
