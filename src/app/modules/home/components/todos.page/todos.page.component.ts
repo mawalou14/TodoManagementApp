@@ -16,10 +16,25 @@ export class TodosPageComponent implements OnInit {
   blockedTasks: GetTodosReponse = [];
 
   ngOnInit(): void {
+    this.loadTodos();
+  }
+
+  loadTodos(): void {
     this.route.data.subscribe(({ userTodos }) => {
-      this.todoTasks = userTodos.filter((todo: Todo) => todo.status === 1);
-      this.completedTasks = userTodos.filter((todo: Todo) => todo.status === 2);
-      this.blockedTasks = userTodos.filter((todo: Todo) => todo.status === 3);
+      this.assignTodosByStatus(userTodos);
     });
+  }
+
+  onTodoStatusUpdated(): void {
+    const userId: string = this.todoService.getuserId();
+    this.todoService.getUsersTodo(userId).subscribe((userTodos) => {
+      this.assignTodosByStatus(userTodos);
+    });
+  }
+
+  private assignTodosByStatus(userTodos: Todo[]): void {
+    this.todoTasks = userTodos.filter((todo: Todo) => todo.status === 1);
+    this.completedTasks = userTodos.filter((todo: Todo) => todo.status === 2);
+    this.blockedTasks = userTodos.filter((todo: Todo) => todo.status === 3);
   }
 }

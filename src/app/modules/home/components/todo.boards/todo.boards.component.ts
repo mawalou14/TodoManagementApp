@@ -1,5 +1,12 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, inject, Input, OnDestroy } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnDestroy,
+  Output,
+} from '@angular/core';
 import {
   GetTodosReponse,
   Todo,
@@ -21,6 +28,7 @@ export class TodoBoardsComponent implements OnDestroy {
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
   @Input() blockedTasks: GetTodosReponse = [];
+  @Output() todoStatusUpdated = new EventEmitter<void>();
 
   dropSub: Subscription;
 
@@ -53,12 +61,12 @@ export class TodoBoardsComponent implements OnDestroy {
         todoId: draggedTodoId,
         status: newStatus,
       };
-      console.log(todoToUpdateStatus);
 
       this.dropSub = this.todoService
         .updateTodoStatus(todoToUpdateStatus)
         .subscribe({
           next: (response) => {
+            this.todoStatusUpdated.emit();
             this.notificationService.showSuccess(
               'Successfully updated',
               'Success'
