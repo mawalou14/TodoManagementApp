@@ -32,7 +32,11 @@
             ></i>
           </div>
           <!-- Box -->
-          <div *ngFor="let todo of todoTasks; trackBy: trackByTodoId" cdkDrag>
+          <div
+            *ngFor="let todo of todoTasks; trackBy: trackByTodoId"
+            cdkDrag
+            [cdkDragData]="todo"
+          >
             <div
               class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
             >
@@ -127,6 +131,8 @@
           <!-- Box -->
           <div
             *ngFor="let todo of completedTasks; trackBy: trackByTodoId"
+            cdkDrag
+            [cdkDragData]="todo"
             cdkDrag
           >
             <div
@@ -223,6 +229,8 @@
           <!-- Box -->
           <div
             *ngFor="let todo of blockedTasks; trackBy: trackByTodoId"
+            cdkDrag
+            [cdkDragData]="todo"
             cdkDrag
           >
             <div

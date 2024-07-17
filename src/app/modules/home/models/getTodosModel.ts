@@ -9,8 +9,8 @@ export interface Todo {
 }
 
 export interface UpdateTodoStatus {
-  TodoId: string;
-  Status: number;
+  todoId: string;
+  status: number;
 }
 
 export interface UpdateTodoPiority {

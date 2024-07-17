@@ -39,17 +39,19 @@ export class TodoService {
   }
 
   getUsersTodo(userId: string): Observable<GetTodosReponse> {
-    return this.httpClient.get<GetTodosReponse>(
-      `${this.url}` + '/user/' + userId
-    );
+    return this.httpClient.get<GetTodosReponse>(`${this.url}/user/` + userId);
   }
 
   updateTodo(todoToUpdate: Todo): Observable<any> {
     return this.httpClient.put<any>(`${this.url}`, todoToUpdate);
   }
 
-  updateTodoStatus(todoToUpdateStatus: UpdateTodoStatus): Observable<any> {
-    return this.httpClient.put<any>(`${this.url}`, todoToUpdateStatus);
+  updateTodoStatus(todoToUpdateStatus: UpdateTodoStatus): Observable<string> {
+    return this.httpClient.patch<string>(
+      `${this.url}/update-status`,
+      todoToUpdateStatus,
+      { responseType: 'text' as 'json' }
+    );
   }
 
   updateTodoPiority(todoToUpdatePriority: UpdateTodoPiority): Observable<any> {

@@ -1,19 +1,28 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, inject, Input } from '@angular/core';
-import { GetTodosReponse, Todo } from '../../models/getTodosModel';
+import { Component, inject, Input, OnDestroy } from '@angular/core';
+import {
+  GetTodosReponse,
+  Todo,
+  UpdateTodoStatus,
+} from '../../models/getTodosModel';
 import { TodoService } from '../../services/todo.service';
 import { TranslocoService } from '@jsverse/transloco';
+import { Subscription } from 'rxjs';
+import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
 
 @Component({
   selector: 'app-todo-boards',
   templateUrl: './todo.boards.component.html',
   styleUrls: ['./todo.boards.component.css'],
 })
-export class TodoBoardsComponent {
+export class TodoBoardsComponent implements OnDestroy {
   public todoService = inject(TodoService);
+  private notificationService = inject(NotificationService);
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
   @Input() blockedTasks: GetTodosReponse = [];
+
+  dropSub: Subscription;
 
   trackByTodoId(index: number, todo: Todo): string {
     return todo.todoId;
@@ -30,8 +39,8 @@ export class TodoBoardsComponent {
     const previousContainer = event.previousContainer;
     const newContainer = event.container;
 
-    const id = +draggedItemData.id;
-    const statusId = +newContainer.id;
+    const draggedTodoId = draggedItemData.todoId;
+    const newStatus = +newContainer.id;
 
     if (+previousContainer.id === +newContainer.id) {
       moveItemInArray(
@@ -40,7 +49,31 @@ export class TodoBoardsComponent {
         event.currentIndex
       );
     } else if (+previousContainer.id !== +newContainer.id) {
-      // this.isLoading = true;
+      const todoToUpdateStatus: UpdateTodoStatus = {
+        todoId: draggedTodoId,
+        status: newStatus,
+      };
+      console.log(todoToUpdateStatus);
+
+      this.dropSub = this.todoService
+        .updateTodoStatus(todoToUpdateStatus)
+        .subscribe({
+          next: (response) => {
+            this.notificationService.showSuccess(
+              'Successfully updated',
+              'Success'
+            );
+          },
+          error: (err) => {
+            this.notificationService.showError('An Error Occured', 'Error');
+          },
+        });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.dropSub) {
+      this.dropSub.unsubscribe();
     }
   }
 }
