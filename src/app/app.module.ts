@@ -9,10 +9,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token/token.interceptor.interceptor';
 import { ToastrModule } from 'ngx-toastr';
-import { DropdownDirective } from './modules/shared/directives/dropdown/dropdown.directive';
 
 @NgModule({
-  declarations: [AppComponent, DropdownDirective],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
