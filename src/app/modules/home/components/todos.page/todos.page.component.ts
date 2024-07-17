@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
-import { GetTodosReponse } from '../../models/getTodosModel';
+import { GetTodosReponse, Todo } from '../../models/getTodosModel';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos.page',
@@ -9,16 +10,16 @@ import { GetTodosReponse } from '../../models/getTodosModel';
 })
 export class TodosPageComponent implements OnInit {
   public todoService = inject(TodoService);
+  private route = inject(ActivatedRoute);
   todoTasks: GetTodosReponse = [];
   completedTasks: GetTodosReponse = [];
   blockedTasks: GetTodosReponse = [];
 
   ngOnInit(): void {
-    const userId: string = this.todoService.getuserId();
-    this.todoService.getUsersTodo(userId).subscribe((response) => {
-      this.todoTasks = response.filter((todo) => todo.status === 1);
-      this.completedTasks = response.filter((todo) => todo.status === 2);
-      this.blockedTasks = response.filter((todo) => todo.status === 3);
+    this.route.data.subscribe(({ userTodos }) => {
+      this.todoTasks = userTodos.filter((todo: Todo) => todo.status === 1);
+      this.completedTasks = userTodos.filter((todo: Todo) => todo.status === 2);
+      this.blockedTasks = userTodos.filter((todo: Todo) => todo.status === 3);
     });
   }
 }
