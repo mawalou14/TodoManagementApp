@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, inject, Input } from '@angular/core';
 import { GetTodosReponse, Todo } from '../../models/getTodosModel';
 import { TodoService } from '../../services/todo.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-todo-boards',
@@ -16,6 +17,11 @@ export class TodoBoardsComponent {
 
   trackByTodoId(index: number, todo: Todo): string {
     return todo.todoId;
+  }
+
+  getDateFormat() {
+    const currentLanguage = localStorage.getItem('selectedLanguage');
+    return currentLanguage === 'en' ? 'M/d/yy' : 'dd/MM/yyyy';
   }
 
   drop(event: CdkDragDrop<GetTodosReponse>) {

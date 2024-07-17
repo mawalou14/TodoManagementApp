@@ -41,7 +41,7 @@
               <div class="flex justify-between mt-4 items-center">
                 <mat-chip>
                   <i class="bi bi-calendar-date"></i>
-                  {{ todo.targetedTime | date }}
+                  {{ todo.targetedTime | date : getDateFormat() }}
                 </mat-chip>
                 <div class="flex justify-content-end items-center">
                   <ng-container *ngIf="todo.priority == 1">
@@ -120,7 +120,7 @@
               <div class="flex justify-between mt-4 items-center">
                 <mat-chip>
                   <i class="bi bi-calendar-date"></i>
-                  {{ todo.targetedTime | date }}
+                  {{ todo.targetedTime | date : getDateFormat() }}
                 </mat-chip>
                 <div class="flex justify-content-end items-center">
                   <ng-container *ngIf="todo.priority == 1">
@@ -199,7 +199,7 @@
               <div class="flex justify-between mt-4 items-center">
                 <mat-chip>
                   <i class="bi bi-calendar-date"></i>
-                  {{ todo.targetedTime | date }}
+                  {{ todo.targetedTime | date : getDateFormat() }}
                 </mat-chip>
                 <div class="flex justify-content-end items-center">
                   <ng-container *ngIf="todo.priority == 1">
