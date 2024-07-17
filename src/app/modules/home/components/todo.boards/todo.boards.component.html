@@ -7,7 +7,13 @@
     >
       <!-- Board 1 -->
       <div class="overflow-auto flex justify-center">
-        <div class="board-card todo">
+        <div
+          class="board-card todo"
+          cdkDropList
+          [cdkDropListData]="todoTasks"
+          id="1"
+          (cdkDropListDropped)="drop($event)"
+        >
           <!-- Board Heading -->
           <div class="flex justify-between">
             <div class="flex items-center">
@@ -26,55 +32,42 @@
             ></i>
           </div>
           <!-- Box -->
-          <div
-            cdkDropList
-            id="1"
-            [cdkDropListData]="todoTasks"
-            (cdkDropListDropped)="drop($event)"
-          >
+          <div *ngFor="let todo of todoTasks; trackBy: trackByTodoId" cdkDrag>
             <div
-              *ngFor="let todo of todoTasks; trackBy: trackByTodoId"
-              cdkDropList
-              id="1"
-              [cdkDragData]="todoTasks"
-              cdkDrag
+              class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
             >
-              <div
-                class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
-              >
-                <span class="toto-title">{{ todo.description }}</span>
-                <div class="w-full border border-gray-300 mt-4"></div>
-                <div class="flex justify-between mt-4 items-center">
-                  <mat-chip>
-                    <i class="bi bi-calendar-date"></i>
-                    {{ todo.targetedTime | date }}
-                  </mat-chip>
-                  <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.priority == 1">
-                      <span
-                        class="priority"
-                        style="background-color: #ffbbbb; color: #d71111"
-                        >High</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 2">
-                      <span
-                        class="priority"
-                        style="background-color: #fdf6e8; color: #fa8e4a"
-                        >Medium</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 3">
-                      <span
-                        class="priority"
-                        style="background-color: #dff0ed; color: #32b580"
-                        >Low</span
-                      >
-                    </ng-container>
-                    <i
-                      class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
-                    ></i>
-                  </div>
+              <span class="toto-title">{{ todo.description }}</span>
+              <div class="w-full border border-gray-300 mt-4"></div>
+              <div class="flex justify-between mt-4 items-center">
+                <mat-chip>
+                  <i class="bi bi-calendar-date"></i>
+                  {{ todo.targetedTime | date }}
+                </mat-chip>
+                <div class="flex justify-content-end items-center">
+                  <ng-container *ngIf="todo.priority == 1">
+                    <span
+                      class="priority"
+                      style="background-color: #ffbbbb; color: #d71111"
+                      >High</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 2">
+                    <span
+                      class="priority"
+                      style="background-color: #fdf6e8; color: #fa8e4a"
+                      >Medium</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 3">
+                    <span
+                      class="priority"
+                      style="background-color: #dff0ed; color: #32b580"
+                      >Low</span
+                    >
+                  </ng-container>
+                  <i
+                    class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
+                  ></i>
                 </div>
               </div>
             </div>
@@ -93,7 +86,13 @@
 
       <!-- Board 2 -->
       <div class="overflow-auto flex justify-center">
-        <div class="board-card complete">
+        <div
+          class="board-card complete"
+          cdkDropList
+          [cdkDropListData]="completedTasks"
+          id="2"
+          (cdkDropListDropped)="drop($event)"
+        >
           <!-- Board Heading -->
           <div class="flex justify-between">
             <div class="flex items-center">
@@ -110,54 +109,44 @@
           </div>
           <!-- Box -->
           <div
-            cdkDropList
-            id="2"
-            [cdkDropListData]="completedTasks"
-            (cdkDropListDropped)="drop($event)"
+            *ngFor="let todo of completedTasks; trackBy: trackByTodoId"
+            cdkDrag
           >
             <div
-              *ngFor="let todo of completedTasks; trackBy: trackByTodoId"
-              cdkDropList
-              id="2"
-              [cdkDragData]="completedTasks"
-              cdkDrag
+              class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
             >
-              <div
-                class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
-              >
-                <span class="toto-title">{{ todo.description }}</span>
-                <div class="w-full border border-gray-300 mt-4"></div>
-                <div class="flex justify-between mt-4 items-center">
-                  <mat-chip>
-                    <i class="bi bi-calendar-date"></i>
-                    {{ todo.targetedTime | date }}
-                  </mat-chip>
-                  <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.priority == 1">
-                      <span
-                        class="priority"
-                        style="background-color: #ffbbbb; color: #d71111"
-                        >High</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 2">
-                      <span
-                        class="priority"
-                        style="background-color: #fdf6e8; color: #fa8e4a"
-                        >Medium</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 3">
-                      <span
-                        class="priority"
-                        style="background-color: #dff0ed; color: #32b580"
-                        >Low</span
-                      >
-                    </ng-container>
-                    <i
-                      class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
-                    ></i>
-                  </div>
+              <span class="toto-title">{{ todo.description }}</span>
+              <div class="w-full border border-gray-300 mt-4"></div>
+              <div class="flex justify-between mt-4 items-center">
+                <mat-chip>
+                  <i class="bi bi-calendar-date"></i>
+                  {{ todo.targetedTime | date }}
+                </mat-chip>
+                <div class="flex justify-content-end items-center">
+                  <ng-container *ngIf="todo.priority == 1">
+                    <span
+                      class="priority"
+                      style="background-color: #ffbbbb; color: #d71111"
+                      >High</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 2">
+                    <span
+                      class="priority"
+                      style="background-color: #fdf6e8; color: #fa8e4a"
+                      >Medium</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 3">
+                    <span
+                      class="priority"
+                      style="background-color: #dff0ed; color: #32b580"
+                      >Low</span
+                    >
+                  </ng-container>
+                  <i
+                    class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
+                  ></i>
                 </div>
               </div>
             </div>
@@ -174,7 +163,13 @@
 
       <!-- Board 2 -->
       <div class="overflow-auto flex justify-center">
-        <div class="board-card blocked">
+        <div
+          class="board-card blocked"
+          cdkDropList
+          [cdkDropListData]="blockedTasks"
+          id="3"
+          (cdkDropListDropped)="drop($event)"
+        >
           <!-- Board Heading -->
           <div class="flex justify-between">
             <div class="flex items-center">
@@ -191,56 +186,46 @@
           </div>
           <!-- Box -->
           <div
-            cdkDropList
-            id="2"
-            [cdkDropListData]="blockedTasks"
-            (cdkDropListDropped)="drop($event)"
+            *ngFor="let todo of blockedTasks; trackBy: trackByTodoId"
+            cdkDrag
           >
             <div
-              *ngFor="let todo of blockedTasks; trackBy: trackByTodoId"
-              cdkDropList
-              id="2"
-              [cdkDragData]="blockedTasks"
-              cdkDrag
+              class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
             >
-              <div
-                class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
-              >
-                <span class="toto-title-blocked blocked-todo">{{
-                  todo.description
-                }}</span>
-                <div class="w-full border border-gray-300 mt-4"></div>
-                <div class="flex justify-between mt-4 items-center">
-                  <mat-chip>
-                    <i class="bi bi-calendar-date"></i>
-                    {{ todo.targetedTime | date }}
-                  </mat-chip>
-                  <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.priority == 1">
-                      <span
-                        class="priority"
-                        style="background-color: #ffbbbb; color: #d71111"
-                        >High</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 2">
-                      <span
-                        class="priority"
-                        style="background-color: #fdf6e8; color: #fa8e4a"
-                        >Medium</span
-                      >
-                    </ng-container>
-                    <ng-container *ngIf="todo.priority == 3">
-                      <span
-                        class="priority"
-                        style="background-color: #dff0ed; color: #32b580"
-                        >Low</span
-                      >
-                    </ng-container>
-                    <i
-                      class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer blocked-todo hover:text-red-900"
-                    ></i>
-                  </div>
+              <span class="toto-title-blocked blocked-todo">{{
+                todo.description
+              }}</span>
+              <div class="w-full border border-gray-300 mt-4"></div>
+              <div class="flex justify-between mt-4 items-center">
+                <mat-chip>
+                  <i class="bi bi-calendar-date"></i>
+                  {{ todo.targetedTime | date }}
+                </mat-chip>
+                <div class="flex justify-content-end items-center">
+                  <ng-container *ngIf="todo.priority == 1">
+                    <span
+                      class="priority"
+                      style="background-color: #ffbbbb; color: #d71111"
+                      >High</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 2">
+                    <span
+                      class="priority"
+                      style="background-color: #fdf6e8; color: #fa8e4a"
+                      >Medium</span
+                    >
+                  </ng-container>
+                  <ng-container *ngIf="todo.priority == 3">
+                    <span
+                      class="priority"
+                      style="background-color: #dff0ed; color: #32b580"
+                      >Low</span
+                    >
+                  </ng-container>
+                  <i
+                    class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer blocked-todo hover:text-red-900"
+                  ></i>
                 </div>
               </div>
             </div>
