@@ -54,8 +54,14 @@ export class TodoService {
     );
   }
 
-  updateTodoPiority(todoToUpdatePriority: UpdateTodoPiority): Observable<any> {
-    return this.httpClient.put<any>(`${this.url}`, todoToUpdatePriority);
+  updateTodoPiority(
+    todoToUpdatePriority: UpdateTodoPiority
+  ): Observable<string> {
+    return this.httpClient.patch<any>(
+      `${this.url}/update-priority`,
+      todoToUpdatePriority,
+      { responseType: 'text' as 'json' }
+    );
   }
 
   deleteTodo(todoToDeleteId: string): Observable<any> {

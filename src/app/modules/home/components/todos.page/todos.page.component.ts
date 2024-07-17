@@ -25,7 +25,7 @@ export class TodosPageComponent implements OnInit {
     });
   }
 
-  onTodoStatusUpdated(): void {
+  onTodoUpdated(): void {
     const userId: string = this.todoService.getuserId();
     this.todoService.getUsersTodo(userId).subscribe((userTodos) => {
       this.assignTodosByStatus(userTodos);

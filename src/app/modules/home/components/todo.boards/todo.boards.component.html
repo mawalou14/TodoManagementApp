@@ -99,21 +99,33 @@
                     </button>
                   </mat-menu>
                   <mat-menu #editPriorityDropdown="matMenu">
-                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 3"
+                      (click)="updatePriority(todo.todoId, 3)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toLow" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 2"
+                      (click)="updatePriority(todo.todoId, 2)"
+                      mat-menu-item
+                    >
                       <i
                         class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toMedium" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 1"
+                      (click)="updatePriority(todo.todoId, 1)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toHigh" | transloco }}
                     </button>
@@ -226,21 +238,33 @@
                     </button>
                   </mat-menu>
                   <mat-menu #editCompletedPriorityDropdown="matMenu">
-                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 3"
+                      (click)="updatePriority(todo.todoId, 3)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toLow" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 2"
+                      (click)="updatePriority(todo.todoId, 2)"
+                      mat-menu-item
+                    >
                       <i
                         class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toMedium" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 1"
+                      (click)="updatePriority(todo.todoId, 1)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toHigh" | transloco }}
                     </button>
@@ -355,21 +379,33 @@
                     </button>
                   </mat-menu>
                   <mat-menu #editBlockedPriorityDropdown="matMenu">
-                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 3"
+                      (click)="updatePriority(todo.todoId, 3)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toLow" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 2"
+                      (click)="updatePriority(todo.todoId, 2)"
+                      mat-menu-item
+                    >
                       <i
                         class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toMedium" | transloco }}
                     </button>
-                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                    <button
+                      *ngIf="todo.priority !== 1"
+                      (click)="updatePriority(todo.todoId, 1)"
+                      mat-menu-item
+                    >
                       <i
-                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
                       {{ "todo.toHigh" | transloco }}
                     </button>

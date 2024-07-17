@@ -14,8 +14,8 @@ export interface UpdateTodoStatus {
 }
 
 export interface UpdateTodoPiority {
-  TodoId: string;
-  Priority: number;
+  todoId: string;
+  priority: number;
 }
 
 export type GetTodosReponse = Array<Todo>;

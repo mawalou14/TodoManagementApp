@@ -10,6 +10,7 @@ import {
 import {
   GetTodosReponse,
   Todo,
+  UpdateTodoPiority,
   UpdateTodoStatus,
 } from '../../models/getTodosModel';
 import { TodoService } from '../../services/todo.service';
@@ -29,9 +30,10 @@ export class TodoBoardsComponent implements OnDestroy {
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
   @Input() blockedTasks: GetTodosReponse = [];
-  @Output() todoStatusUpdated = new EventEmitter<void>();
+  @Output() todoUpdated = new EventEmitter<void>();
 
   dropSub: Subscription;
+  updatePrioritySub: Subscription;
 
   trackByTodoId(index: number, todo: Todo): string {
     return todo.todoId;
@@ -67,7 +69,7 @@ export class TodoBoardsComponent implements OnDestroy {
         .updateTodoStatus(todoToUpdateStatus)
         .subscribe({
           next: (response) => {
-            this.todoStatusUpdated.emit();
+            this.todoUpdated.emit();
             this.notificationService.showSuccess(
               this.translocoService.translate('todo.updatedSuccessfully'),
               this.translocoService.translate('login.success')
@@ -83,9 +85,54 @@ export class TodoBoardsComponent implements OnDestroy {
     }
   }
 
+  updatePriority(todoId: string, priority: number) {
+    const todoToUpdatePriority: UpdateTodoPiority = {
+      todoId: todoId,
+      priority: priority,
+    };
+    this.updatePrioritySub = this.todoService
+      .updateTodoPiority(todoToUpdatePriority)
+      .subscribe({
+        next: (response) => {
+          this.todoUpdated.emit();
+          this.notificationService.showSuccess(
+            this.translocoService.translate('todo.updatedSuccessfully'),
+            this.translocoService.translate('login.success')
+          );
+        },
+        error: (err) => {
+          this.notificationService.showError(
+            this.translocoService.translate('register.anErrOccured'),
+            this.translocoService.translate('login.error')
+          );
+        },
+      });
+  }
+
+  deleteTodo(todoId: string) {
+    this.updatePrioritySub = this.todoService.deleteTodo(todoId).subscribe({
+      next: (response) => {
+        this.todoUpdated.emit();
+        this.notificationService.showSuccess(
+          this.translocoService.translate('todo.deletedSuccessfully'),
+          this.translocoService.translate('login.success')
+        );
+      },
+      error: (err) => {
+        this.notificationService.showError(
+          this.translocoService.translate('register.anErrOccured'),
+          this.translocoService.translate('login.error')
+        );
+      },
+    });
+  }
+
   ngOnDestroy(): void {
     if (this.dropSub) {
       this.dropSub.unsubscribe();
+    }
+    if (this.updatePrioritySub) {
+      this.updatePrioritySub.unsubscribe();
     }
   }
 }
