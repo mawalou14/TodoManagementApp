@@ -66,8 +66,23 @@
                     >
                   </ng-container>
                   <i
+                    [matMenuTriggerFor]="todosDropdownMenu"
                     class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
                   ></i>
+                  <mat-menu #todosDropdownMenu="matMenu">
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>Update Information</span>
+                    </button>
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
+                      ></i>
+                      <span class="text-red-500">Delete</span>
+                    </button>
+                  </mat-menu>
                 </div>
               </div>
             </div>
@@ -145,8 +160,23 @@
                     >
                   </ng-container>
                   <i
+                    [matMenuTriggerFor]="completedDropdownMenu"
                     class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
                   ></i>
+                  <mat-menu #completedDropdownMenu="matMenu">
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>Update Information</span>
+                    </button>
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
+                      ></i>
+                      <span class="text-red-500">Delete</span>
+                    </button>
+                  </mat-menu>
                 </div>
               </div>
             </div>
@@ -224,8 +254,23 @@
                     >
                   </ng-container>
                   <i
+                    [matMenuTriggerFor]="blockedDropdownMenu"
                     class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer blocked-todo hover:text-red-900"
                   ></i>
+                  <mat-menu #blockedDropdownMenu="matMenu">
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>Update Information</span>
+                    </button>
+                    <button mat-menu-item>
+                      <i
+                        class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
+                      ></i>
+                      <span class="text-red-500">Delete</span>
+                    </button>
+                  </mat-menu>
                 </div>
               </div>
             </div>

@@ -14,6 +14,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TodoBoardsComponent } from './components/todo.boards/todo.boards.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TodoBoardsComponent } from './components/todo.boards/todo.boards.compon
     DragDropModule,
     MatChipsModule,
     MatExpansionModule,
+    MatMenuModule,
   ],
 })
 export class HomeModule {}
