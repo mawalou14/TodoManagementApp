@@ -24,7 +24,7 @@
               <span
                 class="board-title new-todo ml-4 sm:text-sm md:text-md lg:text-lg"
               >
-                New Todos
+                {{ "todo.newTodo" | transloco }}
               </span>
             </div>
             <i
@@ -48,21 +48,21 @@
                     <span
                       class="priority"
                       style="background-color: #ffbbbb; color: #d71111"
-                      >High</span
+                      >{{ "todo.high" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 2">
                     <span
                       class="priority"
                       style="background-color: #fdf6e8; color: #fa8e4a"
-                      >Medium</span
+                      >{{ "todo.medim" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 3">
                     <span
                       class="priority"
                       style="background-color: #dff0ed; color: #32b580"
-                      >Low</span
+                      >{{ "todo.low" | transloco }}</span
                     >
                   </ng-container>
                   <i
@@ -74,13 +74,15 @@
                       <i
                         class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
-                      <span>Update Information</span>
+                      <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
                       ></i>
-                      <span class="text-red-500">Delete</span>
+                      <span class="text-red-500">{{
+                        "todo.delete" | transloco
+                      }}</span>
                     </button>
                   </mat-menu>
                 </div>
@@ -94,7 +96,7 @@
             <i
               class="bi bi-plus text-2xl lg:text-4xl cursor-pointer text-blue-900 hover:text-slate-500"
             ></i>
-            <span class="toto-title">Add New Task</span>
+            <span class="toto-title">{{ "todo.addNewTodo" | transloco }}</span>
           </div>
         </div>
       </div>
@@ -118,7 +120,7 @@
               <span
                 class="board-title completed-todo ml-4 sm:text-sm md:text-md lg:text-lg"
               >
-                Completed Todos
+                {{ "todo.completedTodo" | transloco }}
               </span>
             </div>
           </div>
@@ -142,21 +144,21 @@
                     <span
                       class="priority"
                       style="background-color: #ffbbbb; color: #d71111"
-                      >High</span
+                      >{{ "todo.high" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 2">
                     <span
                       class="priority"
                       style="background-color: #fdf6e8; color: #fa8e4a"
-                      >Medium</span
+                      >{{ "todo.medim" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 3">
                     <span
                       class="priority"
                       style="background-color: #dff0ed; color: #32b580"
-                      >Low</span
+                      >{{ "todo.low" | transloco }}</span
                     >
                   </ng-container>
                   <i
@@ -168,13 +170,15 @@
                       <i
                         class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
-                      <span>Update Information</span>
+                      <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
                       ></i>
-                      <span class="text-red-500">Delete</span>
+                      <span class="text-red-500">{{
+                        "todo.delete" | transloco
+                      }}</span>
                     </button>
                   </mat-menu>
                 </div>
@@ -186,7 +190,9 @@
             *ngIf="completedTasks.length === 0"
             class="no-todo-found no-completed-found rounded-xl p-2 md:p-4 mt-4 md:mt-8"
           >
-            <span class="completed-todo">No Todo Added</span>
+            <span class="completed-todo">{{
+              "todo.noTodoAdded" | transloco
+            }}</span>
           </div>
         </div>
       </div>
@@ -210,7 +216,7 @@
               <span
                 class="board-title blocked-todo ml-4 sm:text-sm md:text-md lg:text-lg"
               >
-                Blocked Todos
+                {{ "todo.blockedTodo" | transloco }}
               </span>
             </div>
           </div>
@@ -236,39 +242,41 @@
                     <span
                       class="priority"
                       style="background-color: #ffbbbb; color: #d71111"
-                      >High</span
+                      >{{ "todo.high" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 2">
                     <span
                       class="priority"
                       style="background-color: #fdf6e8; color: #fa8e4a"
-                      >Medium</span
+                      >{{ "todo.medim" | transloco }}</span
                     >
                   </ng-container>
                   <ng-container *ngIf="todo.priority == 3">
                     <span
                       class="priority"
                       style="background-color: #dff0ed; color: #32b580"
-                      >Low</span
+                      >{{ "todo.low" | transloco }}</span
                     >
                   </ng-container>
                   <i
                     [matMenuTriggerFor]="blockedDropdownMenu"
-                    class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer blocked-todo hover:text-red-900"
+                    class="bi bi-three-dots-vertical text-xl lg:text-2xl cursor-pointer text-blue-900 hover:text-slate-500"
                   ></i>
                   <mat-menu #blockedDropdownMenu="matMenu">
                     <button mat-menu-item>
                       <i
                         class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
                       ></i>
-                      <span>Update Information</span>
+                      <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
                       ></i>
-                      <span class="text-red-500">Delete</span>
+                      <span class="text-red-500">{{
+                        "todo.delete" | transloco
+                      }}</span>
                     </button>
                   </mat-menu>
                 </div>
@@ -280,7 +288,9 @@
             *ngIf="blockedTasks.length === 0"
             class="no-todo-found no-blocked-found rounded-xl p-2 md:p-4 mt-4 md:mt-8"
           >
-            <span class="blocked-todo">No Todo Added</span>
+            <span class="blocked-todo">{{
+              "todo.noTodoAdded" | transloco
+            }}</span>
           </div>
         </div>
       </div>

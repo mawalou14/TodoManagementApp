@@ -25,6 +25,16 @@
   },
 
   "todo": {
-    "myTodo": "My Todos"
+    "myTodo": "My Todos",
+    "newTodo": "New Todos",
+    "medim": "Medium",
+    "low": "Low",
+    "high": "High",
+    "addNewTodo": "Add New Todo",
+    "updateInformations": "Update Informations",
+    "delete": "Delete",
+    "completedTodo": "Completed Todos",
+    "blockedTodo": "Blocked Todos",
+    "noTodoAdded": "No Todos added"
   }
 }

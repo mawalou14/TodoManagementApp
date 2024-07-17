@@ -25,6 +25,16 @@
   },
 
   "todo": {
-    "myTodo": "Mes Todos"
+    "myTodo": "Mes Tâches",
+    "newTodo": "Nouveau Tâches",
+    "medim": "Moyen",
+    "low": "Faible",
+    "high": "Élevée",
+    "addNewTodo": "Ajouter une nouvelle tâche",
+    "updateInformations": "Mettre à jour",
+    "delete": "Supprimer",
+    "completedTodo": "Tâches terminées",
+    "blockedTodo": "Tâches bloquées",
+    "noTodoAdded": "Aucune tâche ajoutée"
   }
 }
