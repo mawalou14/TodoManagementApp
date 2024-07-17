@@ -65,6 +65,8 @@ export class TodoService {
   }
 
   deleteTodo(todoToDeleteId: string): Observable<any> {
-    return this.httpClient.delete<any>(`${this.url}` + '/' + todoToDeleteId);
+    return this.httpClient.delete<any>(`${this.url}/delete/` + todoToDeleteId, {
+      responseType: 'text' as 'json',
+    });
   }
 }
