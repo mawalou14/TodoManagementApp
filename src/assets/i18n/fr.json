@@ -35,6 +35,10 @@
     "delete": "Supprimer",
     "completedTodo": "Tâches terminées",
     "blockedTodo": "Tâches bloquées",
-    "noTodoAdded": "Aucune tâche ajoutée"
+    "noTodoAdded": "Aucune tâche ajoutée",
+    "editPriority": "Modifier la priorité",
+    "toLow": "À faible",
+    "toHigh": "À élevé",
+    "toMedium": "À moyen"
   }
 }

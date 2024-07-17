@@ -80,6 +80,15 @@
                       ></i>
                       <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
+                    <button
+                      mat-menu-item
+                      [matMenuTriggerFor]="editPriorityDropdown"
+                    >
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>{{ "todo.editPriority" | transloco }}</span>
+                    </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
@@ -87,6 +96,26 @@
                       <span class="text-red-500">{{
                         "todo.delete" | transloco
                       }}</span>
+                    </button>
+                  </mat-menu>
+                  <mat-menu #editPriorityDropdown="matMenu">
+                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toLow" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                      <i
+                        class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toMedium" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toHigh" | transloco }}
                     </button>
                   </mat-menu>
                 </div>
@@ -178,6 +207,15 @@
                       ></i>
                       <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
+                    <button
+                      mat-menu-item
+                      [matMenuTriggerFor]="editCompletedPriorityDropdown"
+                    >
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>{{ "todo.editPriority" | transloco }}</span>
+                    </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
@@ -185,6 +223,26 @@
                       <span class="text-red-500">{{
                         "todo.delete" | transloco
                       }}</span>
+                    </button>
+                  </mat-menu>
+                  <mat-menu #editCompletedPriorityDropdown="matMenu">
+                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toLow" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                      <i
+                        class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toMedium" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toHigh" | transloco }}
                     </button>
                   </mat-menu>
                 </div>
@@ -278,6 +336,15 @@
                       ></i>
                       <span>{{ "todo.updateInformations" | transloco }}</span>
                     </button>
+                    <button
+                      mat-menu-item
+                      [matMenuTriggerFor]="editBlockedPriorityDropdown"
+                    >
+                      <i
+                        class="bi bi-pencil-square text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      <span>{{ "todo.editPriority" | transloco }}</span>
+                    </button>
                     <button mat-menu-item>
                       <i
                         class="bi bi-trash text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
@@ -285,6 +352,26 @@
                       <span class="text-red-500">{{
                         "todo.delete" | transloco
                       }}</span>
+                    </button>
+                  </mat-menu>
+                  <mat-menu #editBlockedPriorityDropdown="matMenu">
+                    <button *ngIf="todo.priority !== 3" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-up text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toLow" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 2" mat-menu-item>
+                      <i
+                        class="bi bi-chevron-bar-contract text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toMedium" | transloco }}
+                    </button>
+                    <button *ngIf="todo.priority !== 1" mat-menu-item>
+                      <i
+                        class="bi bi-arrow-90deg-down text-xl lg:text-2xl cursor-pointer text-blue-900 mr-3"
+                      ></i>
+                      {{ "todo.toHigh" | transloco }}
                     </button>
                   </mat-menu>
                 </div>

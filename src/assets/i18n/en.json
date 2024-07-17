@@ -35,6 +35,10 @@
     "delete": "Delete",
     "completedTodo": "Completed Todos",
     "blockedTodo": "Blocked Todos",
-    "noTodoAdded": "No Todos added"
+    "noTodoAdded": "No Todos added",
+    "editPriority": "Edit Priority",
+    "toLow": "To Low",
+    "toHigh": "To High",
+    "toMedium": "To Medium"
   }
 }
