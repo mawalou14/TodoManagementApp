@@ -79,7 +79,7 @@
               </div>
             </div>
           </div>
-          <!-- Empty new Todo -->
+          <!-- Add new Todo -->
           <div
             class="new-box rounded-xl p-2 md:p-4 mt-4 md:mt-8 cursor-pointer"
           >
@@ -102,7 +102,7 @@
                 >{{ completedTasks.length }}</span
               >
               <span
-                class="board-title new-todo ml-4 sm:text-sm md:text-md lg:text-lg"
+                class="board-title completed-todo ml-4 sm:text-sm md:text-md lg:text-lg"
               >
                 Completed Todos
               </span>
@@ -161,6 +161,13 @@
                 </div>
               </div>
             </div>
+          </div>
+          <!-- Nothing Found -->
+          <div
+            *ngIf="completedTasks.length === 0"
+            class="no-todo-found no-completed-found rounded-xl p-2 md:p-4 mt-4 md:mt-8"
+          >
+            <span class="completed-todo">No Todo Added</span>
           </div>
         </div>
       </div>
@@ -237,6 +244,13 @@
                 </div>
               </div>
             </div>
+          </div>
+          <!-- Nothing Found -->
+          <div
+            *ngIf="blockedTasks.length === 0"
+            class="no-todo-found no-blocked-found rounded-xl p-2 md:p-4 mt-4 md:mt-8"
+          >
+            <span class="blocked-todo">No Todo Added</span>
           </div>
         </div>
       </div>

@@ -88,3 +88,18 @@
 .new-box:hover span {
   font-weight: bold;
 }
+
+.no-todo-found  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-completed-found {
+  border: 2px solid #1257a3;
+  border-style: dotted;
+}
+.no-blocked-found {
+  border: 2px solid #d23633;
+  border-style: dotted;
+}
