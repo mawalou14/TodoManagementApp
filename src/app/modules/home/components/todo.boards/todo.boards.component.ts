@@ -25,6 +25,7 @@ import { NotificationService } from 'src/app/modules/shared/services/notificatio
 export class TodoBoardsComponent implements OnDestroy {
   public todoService = inject(TodoService);
   private notificationService = inject(NotificationService);
+  private translocoService = inject(TranslocoService);
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
   @Input() blockedTasks: GetTodosReponse = [];
@@ -68,12 +69,15 @@ export class TodoBoardsComponent implements OnDestroy {
           next: (response) => {
             this.todoStatusUpdated.emit();
             this.notificationService.showSuccess(
-              'Successfully updated',
-              'Success'
+              this.translocoService.translate('todo.updatedSuccessfully'),
+              this.translocoService.translate('login.success')
             );
           },
           error: (err) => {
-            this.notificationService.showError('An Error Occured', 'Error');
+            this.notificationService.showError(
+              this.translocoService.translate('register.anErrOccured'),
+              this.translocoService.translate('login.error')
+            );
           },
         });
     }

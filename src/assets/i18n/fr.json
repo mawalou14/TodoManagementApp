@@ -39,6 +39,9 @@
     "editPriority": "Modifier la priorité",
     "toLow": "À faible",
     "toHigh": "À élevé",
-    "toMedium": "À moyen"
+    "toMedium": "À moyen",
+    "createdSuccessfully": "Créé avec succès",
+    "updatedSuccessfully": "Mis à jour avec succès",
+    "deletedSuccessfully": "Supprimée avec succès"
   }
 }
