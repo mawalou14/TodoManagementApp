@@ -33,7 +33,7 @@
             (cdkDropListDropped)="drop($event)"
           >
             <div
-              *ngFor="let todo of todoTasks"
+              *ngFor="let todo of todoTasks; trackBy: trackByTodoId"
               cdkDropList
               id="1"
               [cdkDragData]="todoTasks"
@@ -42,29 +42,29 @@
               <div
                 class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
               >
-                <span class="toto-title">{{ todo.Description }}</span>
+                <span class="toto-title">{{ todo.description }}</span>
                 <div class="w-full border border-gray-300 mt-4"></div>
                 <div class="flex justify-between mt-4 items-center">
                   <mat-chip>
                     <i class="bi bi-calendar-date"></i>
-                    {{ todo.TargetedTime | date }}
+                    {{ todo.targetedTime | date }}
                   </mat-chip>
                   <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.Priority == 1">
+                    <ng-container *ngIf="todo.priority == 1">
                       <span
                         class="priority"
                         style="background-color: #ffbbbb; color: #d71111"
                         >High</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 2">
+                    <ng-container *ngIf="todo.priority == 2">
                       <span
                         class="priority"
                         style="background-color: #fdf6e8; color: #fa8e4a"
                         >Medium</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 3">
+                    <ng-container *ngIf="todo.priority == 3">
                       <span
                         class="priority"
                         style="background-color: #dff0ed; color: #32b580"
@@ -116,7 +116,7 @@
             (cdkDropListDropped)="drop($event)"
           >
             <div
-              *ngFor="let todo of completedTasks"
+              *ngFor="let todo of completedTasks; trackBy: trackByTodoId"
               cdkDropList
               id="2"
               [cdkDragData]="completedTasks"
@@ -125,29 +125,29 @@
               <div
                 class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
               >
-                <span class="toto-title">{{ todo.Description }}</span>
+                <span class="toto-title">{{ todo.description }}</span>
                 <div class="w-full border border-gray-300 mt-4"></div>
                 <div class="flex justify-between mt-4 items-center">
                   <mat-chip>
                     <i class="bi bi-calendar-date"></i>
-                    {{ todo.TargetedTime | date }}
+                    {{ todo.targetedTime | date }}
                   </mat-chip>
                   <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.Priority == 1">
+                    <ng-container *ngIf="todo.priority == 1">
                       <span
                         class="priority"
                         style="background-color: #ffbbbb; color: #d71111"
                         >High</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 2">
+                    <ng-container *ngIf="todo.priority == 2">
                       <span
                         class="priority"
                         style="background-color: #fdf6e8; color: #fa8e4a"
                         >Medium</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 3">
+                    <ng-container *ngIf="todo.priority == 3">
                       <span
                         class="priority"
                         style="background-color: #dff0ed; color: #32b580"
@@ -190,7 +190,7 @@
             (cdkDropListDropped)="drop($event)"
           >
             <div
-              *ngFor="let todo of blockedTasks"
+              *ngFor="let todo of blockedTasks; trackBy: trackByTodoId"
               cdkDropList
               id="2"
               [cdkDragData]="blockedTasks"
@@ -200,30 +200,30 @@
                 class="rounded-xl bg-white hover:drop-shadow-md p-2 md:p-4 mt-2 md:mt-4"
               >
                 <span class="toto-title-blocked blocked-todo">{{
-                  todo.Description
+                  todo.description
                 }}</span>
                 <div class="w-full border border-gray-300 mt-4"></div>
                 <div class="flex justify-between mt-4 items-center">
                   <mat-chip>
                     <i class="bi bi-calendar-date"></i>
-                    {{ todo.TargetedTime | date }}
+                    {{ todo.targetedTime | date }}
                   </mat-chip>
                   <div class="flex justify-content-end items-center">
-                    <ng-container *ngIf="todo.Priority == 1">
+                    <ng-container *ngIf="todo.priority == 1">
                       <span
                         class="priority"
                         style="background-color: #ffbbbb; color: #d71111"
                         >High</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 2">
+                    <ng-container *ngIf="todo.priority == 2">
                       <span
                         class="priority"
                         style="background-color: #fdf6e8; color: #fa8e4a"
                         >Medium</span
                       >
                     </ng-container>
-                    <ng-container *ngIf="todo.Priority == 3">
+                    <ng-container *ngIf="todo.priority == 3">
                       <span
                         class="priority"
                         style="background-color: #dff0ed; color: #32b580"

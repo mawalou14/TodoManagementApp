@@ -1,11 +1,11 @@
 export interface Todo {
-  TodoId?: string;
-  Description?: string;
-  TargetedTime?: Date;
-  Priority?: number;
-  Status?: number;
-  CreatedAt?: Date;
-  UserId?: string;
+  todoId: string; // Match this with the property in the response
+  description: string;
+  targetedTime: Date;
+  priority: number;
+  status: number;
+  createdAt?: Date;
+  userId?: string;
 }
 
 export interface UpdateTodoStatus {

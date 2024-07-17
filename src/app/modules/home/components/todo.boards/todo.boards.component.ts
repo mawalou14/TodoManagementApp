@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, inject } from '@angular/core';
-import { GetTodosReponse } from '../../models/getTodosModel';
+import { Component, inject, Input } from '@angular/core';
+import { GetTodosReponse, Todo } from '../../models/getTodosModel';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -10,24 +10,13 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodoBoardsComponent {
   public todoService = inject(TodoService);
+  @Input() todoTasks: GetTodosReponse = [];
+  @Input() completedTasks: GetTodosReponse = [];
+  @Input() blockedTasks: GetTodosReponse = [];
 
-  todoTasks: GetTodosReponse = this.todoService.todos.filter(
-    (obj: { Status: number }) => {
-      return obj.Status === 1;
-    }
-  );
-
-  completedTasks: GetTodosReponse = this.todoService.todos.filter(
-    (obj: { Status: number }) => {
-      return obj.Status === 2;
-    }
-  );
-
-  blockedTasks: GetTodosReponse = this.todoService.todos.filter(
-    (obj: { Status: number }) => {
-      return obj.Status === 3;
-    }
-  );
+  trackByTodoId(index: number, todo: Todo): string {
+    return todo.todoId;
+  }
 
   drop(event: CdkDragDrop<GetTodosReponse>) {
     // belolow are some info we get during the event

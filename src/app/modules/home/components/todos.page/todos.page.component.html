@@ -2,5 +2,9 @@
   class="page-container m-0 sm:p-0 md:p-2 mx-auto px-2 sm:px-6 lg:px-8 flex justify-center"
 >
   <app-header></app-header>
-  <app-todo-boards></app-todo-boards>
+  <app-todo-boards
+    [todoTasks]="todoTasks"
+    [completedTasks]="completedTasks"
+    [blockedTasks]="blockedTasks"
+  ></app-todo-boards>
 </div>
