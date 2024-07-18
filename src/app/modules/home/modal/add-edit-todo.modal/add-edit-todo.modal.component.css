@@ -1,4 +1,5 @@
 
 mat-dialog-content {
-  min-width: 350px !important;
+  min-width: 370px !important;
+  max-width: 370px !important;
 }

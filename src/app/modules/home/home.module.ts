@@ -6,7 +6,7 @@ import { TodosPageComponent } from './components/todos.page/todos.page.component
 import { ProfilePageComponent } from './components/profile.page/profile.page.component';
 import { AddEditTodoModalComponent } from './modal/add-edit-todo.modal/add-edit-todo.modal.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
 import { GeneralLoadingComponent } from '../shared/components/general-loading/general-loading.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -33,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeRoutingModule,
     MatToolbarModule,
     FormsModule,
+    ReactiveFormsModule,
     TranslocoModule,
     DragDropModule,
     MatChipsModule,
