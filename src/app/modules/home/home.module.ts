@@ -15,7 +15,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TodoBoardsComponent } from './components/todo.boards/todo.boards.component';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -36,6 +38,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatChipsModule,
     MatExpansionModule,
     MatMenuModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
+  providers: [MatDatepickerModule],
 })
 export class HomeModule {}

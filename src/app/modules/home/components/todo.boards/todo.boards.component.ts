@@ -17,6 +17,10 @@ import { TodoService } from '../../services/todo.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { Subscription } from 'rxjs';
 import { NotificationService } from 'src/app/modules/shared/services/notification/notification.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddEditTodoModalComponent } from '../../modal/add-edit-todo.modal/add-edit-todo.modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 
 @Component({
   selector: 'app-todo-boards',
@@ -27,6 +31,8 @@ export class TodoBoardsComponent implements OnDestroy {
   public todoService = inject(TodoService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
+  private loadingService = inject(LoadinServiceService);
+  readonly dialog = inject(MatDialog);
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
   @Input() blockedTasks: GetTodosReponse = [];
@@ -94,6 +100,7 @@ export class TodoBoardsComponent implements OnDestroy {
       .updateTodoPiority(todoToUpdatePriority)
       .subscribe({
         next: (response) => {
+          this.loadingService.setLoading(false);
           this.todoUpdated.emit();
           this.notificationService.showSuccess(
             this.translocoService.translate('todo.updatedSuccessfully'),
@@ -101,6 +108,7 @@ export class TodoBoardsComponent implements OnDestroy {
           );
         },
         error: (err) => {
+          this.loadingService.setLoading(false);
           this.notificationService.showError(
             this.translocoService.translate('register.anErrOccured'),
             this.translocoService.translate('login.error')
@@ -112,6 +120,7 @@ export class TodoBoardsComponent implements OnDestroy {
   deleteTodo(todoId: string) {
     this.updatePrioritySub = this.todoService.deleteTodo(todoId).subscribe({
       next: (response) => {
+        this.loadingService.setLoading(false);
         this.todoUpdated.emit();
         this.notificationService.showSuccess(
           this.translocoService.translate('todo.deletedSuccessfully'),
@@ -119,11 +128,23 @@ export class TodoBoardsComponent implements OnDestroy {
         );
       },
       error: (err) => {
+        this.loadingService.setLoading(false);
         this.notificationService.showError(
           this.translocoService.translate('register.anErrOccured'),
           this.translocoService.translate('login.error')
         );
       },
+    });
+  }
+
+  openModal(): void {
+    const dialogRef = this.dialog.open(AddEditTodoModalComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+        // this.animal.set(result);
+      }
     });
   }
 

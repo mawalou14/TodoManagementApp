@@ -12,6 +12,10 @@
 	font-family: Raleway, sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html, body { height: 100%; width: 100%; }
 
 .toast-top-center {
@@ -27,3 +31,16 @@ html, body { height: 100%; width: 100%; }
   justify-content: center;
   align-items: center;
 }
+
+/* ngb-modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.modal-backdrop.fade
+ {
+   opacity: 0.4 !important;
+ }
+ .modal-open .modal
+ {
+   opacity: 1;
+ } */
