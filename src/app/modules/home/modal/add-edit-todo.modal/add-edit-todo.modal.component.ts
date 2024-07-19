@@ -66,8 +66,8 @@ export class AddEditTodoModalComponent implements OnInit {
   }
 
   onSubmitForm() {
+    this.isLoading = true;
     if (this.todoForm.valid) {
-      this.isLoading = true;
       const userId = this.todoService.getuserId();
       const { description, targetedTime, priority } = this.todoForm.value;
       const isoTargetedTime = new Date(targetedTime).toISOString();
@@ -123,7 +123,6 @@ export class AddEditTodoModalComponent implements OnInit {
           },
         });
       }
-      this.isLoading = false;
     }
   }
 

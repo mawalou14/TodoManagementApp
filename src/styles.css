@@ -32,6 +32,10 @@ html, body { height: 100%; width: 100%; }
   align-items: center;
 }
 
+circle {
+  stroke: white !important;
+}
+
 /* ngb-modal-backdrop {
   z-index: 1050 !important;
 }

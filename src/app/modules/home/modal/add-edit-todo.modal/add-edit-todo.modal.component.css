@@ -3,3 +3,9 @@ mat-dialog-content {
   min-width: 370px !important;
   max-width: 370px !important;
 }
+
+.spinner {
+  width: 22px !important;
+  height: 22px !important;
+  margin-right: 20px;
+}

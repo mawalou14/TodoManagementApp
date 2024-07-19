@@ -110,6 +110,14 @@
       >
         Save
       </button>
+      <button
+        class="ml-3 flex rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        *ngIf="isLoading"
+        type="button"
+      >
+        <mat-spinner class="spinner"></mat-spinner>
+        <span class="button__text">{{ "login.loading" | transloco }} ...</span>
+      </button>
     </div>
   </mat-dialog-actions>
 </form>
