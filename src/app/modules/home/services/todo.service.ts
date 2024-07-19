@@ -1,4 +1,8 @@
-import { UpdateTodoPiority } from './../models/getTodosModel';
+import {
+  CreateTodo,
+  UpdateTodo,
+  UpdateTodoPiority,
+} from './../models/getTodosModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
@@ -38,12 +42,20 @@ export class TodoService {
     return null;
   }
 
+  create(todo: CreateTodo): Observable<string> {
+    return this.httpClient.post<string>(`${this.url}/create`, todo, {
+      responseType: 'text' as 'json',
+    });
+  }
+
   getUsersTodo(userId: string): Observable<GetTodosReponse> {
     return this.httpClient.get<GetTodosReponse>(`${this.url}/user/` + userId);
   }
 
-  updateTodo(todoToUpdate: Todo): Observable<any> {
-    return this.httpClient.put<any>(`${this.url}`, todoToUpdate);
+  updateTodo(todoToUpdate: UpdateTodo): Observable<string> {
+    return this.httpClient.put<string>(`${this.url}/update`, todoToUpdate, {
+      responseType: 'text' as 'json',
+    });
   }
 
   updateTodoStatus(todoToUpdateStatus: UpdateTodoStatus): Observable<string> {

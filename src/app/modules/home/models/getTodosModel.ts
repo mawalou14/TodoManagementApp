@@ -1,5 +1,5 @@
 export interface Todo {
-  todoId: string; // Match this with the property in the response
+  todoId: string;
   description: string;
   targetedTime: Date;
   priority: number;
@@ -19,3 +19,19 @@ export interface UpdateTodoPiority {
 }
 
 export type GetTodosReponse = Array<Todo>;
+
+export interface CreateTodo {
+  description: string;
+  targetedTime: string;
+  priority: number;
+  status?: number;
+  userId?: string;
+}
+
+export interface UpdateTodo {
+  description: string;
+  targetedTime: string;
+  priority: number;
+  status?: number;
+  todoId?: string;
+}

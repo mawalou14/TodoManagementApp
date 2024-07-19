@@ -137,13 +137,14 @@ export class TodoBoardsComponent implements OnDestroy {
     });
   }
 
-  openModal(): void {
-    const dialogRef = this.dialog.open(AddEditTodoModalComponent);
+  openModal(isEditMode: boolean, todo?: Todo): void {
+    const dialogRef = this.dialog.open(AddEditTodoModalComponent, {
+      data: { isEditMode: isEditMode, todoToEdit: todo },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      if (result !== undefined) {
-        // this.animal.set(result);
+      if (result.saved) {
+        this.todoUpdated.emit();
       }
     });
   }

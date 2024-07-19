@@ -20,7 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     TranslocoRootModule,
     ToastrModule.forRoot({
-      maxOpened: 3,
+      maxOpened: 2,
       autoDismiss: true,
       timeOut: 5000,
       closeButton: true,

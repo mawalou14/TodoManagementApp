@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Add Task</h1>
 <hr />
-<mat-dialog-content>
-  <form [formGroup]="todoForm" (ngSubmit)="onSubmitForm()">
+<form [formGroup]="todoForm" (ngSubmit)="onSubmitForm()">
+  <mat-dialog-content>
     <div class="col-span-full">
       <!-- 1 -->
       <div class="mt-2">
@@ -83,35 +83,33 @@
               todoForm.get('targetedTime')?.touched
             "
           >
-            Must be a valid date, click on the <b>calendar icon</b> to choose a
+            Must be a valid date, click on the <b>Calendar Icon</b> to choose a
             valid date.
           </div>
         </div>
       </div>
     </div>
-  </form>
-</mat-dialog-content>
-<hr />
-<mat-dialog-actions>
-  <div class="w-full flex justify-end pr-3">
-    <button
-      (click)="onCloseDialog()"
-      type="button"
-      class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-red-300 hover:bg-gray-50"
-    >
-      Cancel
-    </button>
+  </mat-dialog-content>
+  <hr />
+  <mat-dialog-actions>
+    <div class="w-full flex justify-end pr-3">
+      <button
+        (click)="onCloseDialog()"
+        type="button"
+        class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-red-300 hover:bg-gray-50"
+      >
+        Cancel
+      </button>
 
-    <button
-      type="submit"
-      class="ml-3 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      [disabled]="todoForm.invalid"
-      [class.opacity-50]="todoForm.invalid"
-    >
-      Save
-    </button>
-  </div>
-
-  <!-- <button (click)="onCloseDialog()">Cancel</button>
-  <button cdkFocusInitial>Save</button> -->
-</mat-dialog-actions>
+      <button
+        *ngIf="!isLoading"
+        type="submit"
+        class="ml-3 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        [disabled]="todoForm.invalid"
+        [class.opacity-50]="todoForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </mat-dialog-actions>
+</form>
