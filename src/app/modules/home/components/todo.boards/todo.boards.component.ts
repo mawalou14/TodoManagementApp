@@ -151,8 +151,11 @@ export class TodoBoardsComponent implements OnDestroy {
   }
 
   openModal(isEditMode: boolean, todo?: Todo): void {
+    const modalTitle: string = isEditMode
+      ? this.translocoService.translate('modal.editTask')
+      : this.translocoService.translate('modal.addTask');
     const dialogRef = this.dialog.open(AddEditTodoModalComponent, {
-      data: { isEditMode: isEditMode, todoToEdit: todo },
+      data: { isEditMode: isEditMode, todoToEdit: todo, modalTitle },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

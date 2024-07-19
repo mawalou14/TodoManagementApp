@@ -43,5 +43,25 @@
     "createdSuccessfully": "Créé avec succès",
     "updatedSuccessfully": "Mis à jour avec succès",
     "deletedSuccessfully": "Supprimée avec succès"
+  },
+
+  "modal": {
+    "addTask": "Ajouter une tâche",
+    "editTask": "Modifier la tâche",
+    "taskDescription": "Description de la tâche",
+    "descriptionIsReq": "La description est requise.",
+    "priority": "Priorité",
+    "priorityIsReq": "La priorité est requise",
+    "chooseDate": "Choisissez la date",
+    "mustBeAValidDateClickOnThe": "Il doit s'agir d'une date valide, cliquez sur",
+    "calendarIcon": "l'icône du calendrier.",
+    "tChseAVldDte": "pour choisir une date valide.",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "yes": "Oui",
+    "no": "Non",
+    "deleteTask": "Supprimer une tâche",
+"irreversible": "Irréversible",
+"areUSreToDelTdo": "Êtes-vous sûr de vouloir supprimer la tâche"
   }
 }

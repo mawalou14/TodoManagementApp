@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Task</h1>
+<h1 mat-dialog-title>{{ title }}</h1>
 <hr />
 <form [formGroup]="todoForm" (ngSubmit)="onSubmitForm()">
   <mat-dialog-content>
@@ -8,7 +8,7 @@
         <textarea
           id="description"
           name="description"
-          placeholder="Task Description"
+          placeholder="{{ 'modal.taskDescription' | transloco }}"
           class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           formControlName="description"
         ></textarea>
@@ -19,7 +19,7 @@
           "
           class="mt-1 text-red-500"
         >
-          Description is required.
+          {{ "modal.descriptionIsReq" | transloco }}
         </div>
       </div>
 
@@ -33,10 +33,12 @@
             class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
             formControlName="priority"
           >
-            <option selected disabled value="0">Priority</option>
-            <option value="1">High</option>
-            <option value="2">Medium</option>
-            <option value="3">Low</option>
+            <option selected disabled value="0">
+              {{ "modal.priority" | transloco }}
+            </option>
+            <option value="1">{{ "todo.high" | transloco }}</option>
+            <option value="2">{{ "todo.medim" | transloco }}</option>
+            <option value="3">{{ "todo.low" | transloco }}</option>
           </select>
           <div
             *ngIf="
@@ -45,7 +47,7 @@
             "
             class="mt-1 text-red-500"
           >
-            Priority is required.
+            {{ "modal.priorityIsReq" | transloco }}
           </div>
         </div>
       </div>
@@ -61,7 +63,7 @@
               class="outline-none"
               [matDatepicker]="picker"
               [min]="minDate"
-              placeholder="choose date"
+              placeholder="{{ 'modal.chooseDate' | transloco }}"
               formControlName="targetedTime"
             />
             <mat-datepicker-toggle
@@ -83,8 +85,9 @@
               todoForm.get('targetedTime')?.touched
             "
           >
-            Must be a valid date, click on the <b>Calendar Icon</b> to choose a
-            valid date.
+            {{ "modal.mustBeAValidDateClickOnThe" | transloco }}
+            <b>{{ "modal.calendarIcon" | transloco }}</b>
+            {{ "modal.tChseAVldDte" | transloco }}.
           </div>
         </div>
       </div>
@@ -98,7 +101,7 @@
         type="button"
         class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-red-300 hover:bg-gray-50"
       >
-        Cancel
+        {{ "modal.cancel" | transloco }}
       </button>
 
       <button
@@ -108,7 +111,7 @@
         [disabled]="todoForm.invalid"
         [class.opacity-50]="todoForm.invalid"
       >
-        Save
+        {{ "modal.save" | transloco }}
       </button>
       <button
         class="ml-3 flex rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

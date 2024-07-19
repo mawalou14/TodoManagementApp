@@ -25,17 +25,17 @@
   },
 
   "todo": {
-    "myTodo": "My Todos",
-    "newTodo": "New Todos",
+    "myTodo": "My Tasks",
+    "newTodo": "New Tasks",
     "medim": "Medium",
     "low": "Low",
     "high": "High",
-    "addNewTodo": "Add New Todo",
+    "addNewTodo": "Add New Task",
     "updateInformations": "Update Informations",
     "delete": "Delete",
-    "completedTodo": "Completed Todos",
-    "blockedTodo": "Blocked Todos",
-    "noTodoAdded": "No Todos added",
+    "completedTodo": "Completed Tasks",
+    "blockedTodo": "Blocked Tasks",
+    "noTodoAdded": "No Tasks added",
     "editPriority": "Edit Priority",
     "toLow": "To Low",
     "toHigh": "To High",
@@ -43,5 +43,28 @@
     "createdSuccessfully": "Created Successfully",
     "updatedSuccessfully": "Updated Successfully",
     "deletedSuccessfully": "Deleted Successfully"
+  },
+
+  "modal": {
+    "addTask": "Add Task",
+    "editTask": "Edit Task",
+    "taskDescription": "Task Description",
+    "descriptionIsReq": "Description is required.",
+    "priority": "Priority",
+    "priorityIsReq": "Priority is required",
+    "chooseDate": "Choose Date",
+    "mustBeAValidDateClickOnThe": "Must be a valid date, click on the",
+    "calendarIcon": "Calendar Icon",
+    "tChseAVldDte": "to choose a valid date.",
+    "cancel": "Cancel",
+    "save": "Save",
+    "yes": "Yes",
+    "no": "No",
+    "deleteTask": "Delete Task",
+"irreversible": "Irrevesible",
+"areUSreToDelTdo": "Are you sure you want to delete the task"
   }
+
+
+
 }

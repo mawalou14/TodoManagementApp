@@ -26,6 +26,7 @@ export class AddEditTodoModalComponent implements OnInit {
   minDate = new Date();
   isEditMode: boolean;
   todoToEdit: Todo;
+  title: string;
 
   public todoForm = this.formBuilder.group({
     description: [
@@ -41,10 +42,11 @@ export class AddEditTodoModalComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: { isEditMode: boolean; todoToEdit: Todo }
+    public data: { isEditMode: boolean; todoToEdit: Todo; modalTitle: string }
   ) {
     this.isEditMode = data.isEditMode;
     this.todoToEdit = data.todoToEdit;
+    this.title = data.modalTitle;
   }
 
   ngOnInit(): void {
