@@ -21,6 +21,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEditTodoModalComponent } from '../../modal/add-edit-todo.modal/add-edit-todo.modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
+import { ConfirmationModalComponent } from '../../modal/confirmation.modal/confirmation.modal.component';
 
 @Component({
   selector: 'app-todo-boards',
@@ -117,7 +118,19 @@ export class TodoBoardsComponent implements OnDestroy {
       });
   }
 
-  deleteTodo(todoId: string) {
+  deleteTodo(todo: Todo) {
+    const dialogRef = this.dialog.open(ConfirmationModalComponent, {
+      data: { todoToDelete: todo },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result.confirmed) {
+        this.deleteTodoAfterConfirmation(todo.todoId);
+      }
+    });
+  }
+
+  deleteTodoAfterConfirmation(todoId: string) {
     this.updatePrioritySub = this.todoService.deleteTodo(todoId).subscribe({
       next: (response) => {
         this.loadingService.setLoading(false);

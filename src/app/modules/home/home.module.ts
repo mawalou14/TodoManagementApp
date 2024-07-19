@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ConfirmationModalComponent } from './modal/confirmation.modal/confirmation.modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     GeneralLoadingComponent,
     HeaderComponent,
     TodoBoardsComponent,
+    ConfirmationModalComponent,
   ],
   imports: [
     CommonModule,

@@ -41,7 +41,7 @@ export class AddEditTodoModalComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: { isEditMode: boolean; todoToEdit: any }
+    public data: { isEditMode: boolean; todoToEdit: Todo }
   ) {
     this.isEditMode = data.isEditMode;
     this.todoToEdit = data.todoToEdit;
