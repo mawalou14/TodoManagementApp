@@ -9,7 +9,7 @@ The Todo Management Web Application is a client-side Angular application designe
 - [Best Practices](#best-practices)
 - [Docker and Nginx Setup](#docker-and-nginx-setup)
 - [Installation](#installation)
-- [API Repository](#API-Repository)
+- [API Repository](#api-repository)
 
 ## Features
 
@@ -84,6 +84,8 @@ The Todo Management Web Application is a client-side Angular application designe
 
 ## Installation
 
+`If You want to run effectively, you have to eaqually visit the API repository`
+
 - To set up the application locally:
 
   1. **Clone the Repository:**
@@ -127,6 +129,8 @@ The Todo Management Web Application is a client-side Angular application designe
 
      Open your web browser and navigate to `http://localhost:1414` to view the application running in Docker.
 
-- **API Repository:**
+## API Repository
 
-For detailed information on the API endpoints and how to use them, please refer to the [API Repository](https://github.com/mawalou14/TodoManagementApi.git).
+- Here we have the API Repository for this project: [API Repository](https://github.com/mawalou14/TodoManagementApi.git).
+
+- Note that the API is made with .NET 8.
