@@ -8,9 +8,10 @@ The Todo Management Web Application is a client-side Angular application designe
 - [Technologies Used](#technologies-used)
 - [Best Practices](#best-practices)
 - [Docker and Nginx Setup](#docker-and-nginx-setup)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [API Repository](#api-repository)
-- [Screenshots](#screenshots)
+
 
 ## Features
 
