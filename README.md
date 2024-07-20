@@ -1,27 +1,86 @@
-# TodoApp
+# Todo Management Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+The Todo Management Web Application is a client-side Angular application designed to manage user todos. It provides a user-friendly interface for interacting with todo items, leveraging Angular's robust features and best practices.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Best Practices](#best-practices)
+- [Docker and Nginx Setup](#docker-and-nginx-setup)
+- [Installation](#installation)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Authentication and Registration:**
+  - Register by creating your account as a new User.
+  - Login to your account in order to have access to the main part of the application.
 
-## Build
+- **Todo Management:**
+  - Create, retrieve, update, and delete todos.
+  - Set priorities (high, medium, low) and status (e.g., completed, pending) for todos.
+  - Filter todos by status and display them in a drag-and-drop board.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **User Interaction:**
+  - User authentication using login and registration forms.
+  - Responsive design optimized for both mobile and desktop views.
+  - Modal dialogs for adding, editing, and confirming actions on todos.
 
-## Running unit tests
+- **Error Handling:**
+  - Display user-friendly messages for errors or successful operations.
+  - Global loading spinner to indicate ongoing HTTP requests.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Routing:**
+  - Lazy-loaded modules for optimized performance.
+  - Dynamic route handling with Angular's Router.
 
-## Running end-to-end tests
+## Technologies Used
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Frontend:**
+  - Angular Version 16: Framework for building the web application.
+  - Angular Material: UI component library for a polished user interface.
+  - RxJS: Library for reactive programming using observables.
+  - Nginx: Web server used to serve the Angular application.
 
-## Further help
+- **Development Tools:**
+  - Docker: Containerization tool for building and running the application.
+  - Node.js: JavaScript runtime used for building and managing the Angular project.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Best Practices
+
+- **Lazy Loading:** Modules are loaded on demand to improve performance and reduce initial load times.
+  - **Modules:**
+    - `AuthModule`: Contains authentication components (login and registration).
+    - `HomeModule`: Contains the Home component.
+    - `TodosModule`: Contains todo-related components.
+    - `SharedModule`: Contains all the shared elements of the application.
+
+- **Angular Routing:**
+  - **Resolvers:** Used to fetch data before navigating to a route, ensuring data is available when the user reaches the route.
+    - **Example:** `TodoResolver` fetches todos before the `TodosComponent` is displayed.
+  - **Guards:** Used to control route access based on conditions (e.g., user authentication).
+    - **Example:** `AuthGuard` prevents unauthorized access to protected routes.
+
+- **Reactive Forms:** Used for managing forms with validation and dynamic behavior.
+  - **Example:** `todoForm` with validation for creating and updating todos.
+
+- **Loading Indicators:** Global loading spinner managed via an HTTP interceptor and a loading service.
+  - **Example:** `LoadingInterceptor` shows a spinner during HTTP requests and hides it afterward.
+
+## Docker and Nginx Setup
+
+- **Docker:** The application is containerized using Docker, allowing for consistent deployment across various environments. Docker ensures that the application and its dependencies are bundled together in a container image.
+
+- **Nginx:** Nginx is used as a web server to serve the Angular application. It provides efficient static file serving and handles HTTP requests, making the application accessible over the web.
+
+## Installation
+
+- To set up the application locally:
+
+  1. **Clone the Repository:**
+     ```bash
+     git clone https://github.com/mawalou14/TodoManagementApp.git
+     cd TodoManagementApp
+     npm install
+     ng serve
+     ```
