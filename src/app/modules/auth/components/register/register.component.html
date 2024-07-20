@@ -83,7 +83,7 @@
           <span
             *ngIf="registerForm.get('confirmPassword').errors?.['mustMatch']"
             class="error-text"
-            >Must match the above<b>password</b></span
+            >{{ "register.mustMatch" | transloco }}</span
           >
         </div>
         <button

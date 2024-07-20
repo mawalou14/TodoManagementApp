@@ -22,7 +22,8 @@
     "confirmPassword": "Confirm Password",
     "registerNow": "Register Now",
     "registerSuccess": "Registered Successfully",
-    "anErrOccured": "An Error Occured"
+    "anErrOccured": "An Error Occured",
+    "mustMatch": "Must match the above password"
   },
 
   "todo": {

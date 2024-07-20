@@ -22,7 +22,8 @@
     "confirmPassword": "Confirmez le mot de passe",
     "registerNow": "S'inscrire",
     "registerSuccess": "Inscription réussie",
-    "anErrOccured": "Une erreur s'est produite"
+    "anErrOccured": "Une erreur s'est produite",
+    "mustMatch": "Doit correspondre au mot de passe ci-dessus"
   },
 
   "todo": {
