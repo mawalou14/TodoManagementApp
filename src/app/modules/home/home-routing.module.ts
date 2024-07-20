@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { ProfilePageComponent } from './components/profile.page/profile.page.component';
 import { TodosPageComponent } from './components/todos.page/todos.page.component';
 import { todoResolver } from './resolver/todo.resolver';
+import { authGuard } from '../shared/guards/auth.guard.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivateChild: [authGuard],
     children: [
       {
         path: '',
