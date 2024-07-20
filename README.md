@@ -1,4 +1,4 @@
-# Todo Management Web Application
+![modal](https://github.com/user-attachments/assets/c64779f0-389a-4c3c-99f8-5ea8b8c5a342)# Todo Management Web Application
 
 The Todo Management Web Application is a client-side Angular application designed to manage user todos. It provides a user-friendly interface for interacting with todo items, leveraging Angular's robust features and best practices.
 
@@ -10,6 +10,7 @@ The Todo Management Web Application is a client-side Angular application designe
 - [Docker and Nginx Setup](#docker-and-nginx-setup)
 - [Installation](#installation)
 - [API Repository](#api-repository)
+- [Screenshots](#screenshots)
 
 ## Features
 
@@ -81,6 +82,18 @@ The Todo Management Web Application is a client-side Angular application designe
 - **Docker:** The application is containerized using Docker, allowing for consistent deployment across various environments. Docker ensures that the application and its dependencies are bundled together in a container image.
 
 - **Nginx:** Nginx is used as a web server to serve the Angular application. It provides efficient static file serving and handles HTTP requests, making the application accessible over the web.
+
+## Screenshots
+![home](https://github.com/user-attachments/assets/89f13f35-9dea-444c-ae2d-a2d2362afd5b)
+
+![homeWithCards](https://github.com/user-attachments/assets/6dfc8a66-e9ce-4b19-8964-1d467de9e280)
+
+![notFound](https://github.com/user-attachments/assets/3b6ee30d-3b77-4cf7-9de1-e86274050eda)
+
+![showingDragDrop](https://github.com/user-attachments/assets/1c48cdb0-8003-4574-b92b-9d4212db1337)
+
+![modal](https://github.com/user-attachments/assets/e2165383-0edc-4232-84c5-6d5823aff4bc)
+
 
 ## Installation
 
