@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GeneralLoadingComponent } from './components/general-loading/general-loading.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [GeneralLoadingComponent],
   imports: [CommonModule],
-  exports: [],
+  exports: [GeneralLoadingComponent],
 })
 export class SharedModule {}

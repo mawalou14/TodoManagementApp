@@ -13,14 +13,13 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   private translocoService = inject(TranslocoService);
   private authService = inject(AuthService);
+  private loadingService = inject(LoadinServiceService);
   private router = inject(Router);
-  loadingService = inject(LoadinServiceService);
   currentLang: string;
   supportedLangs: string[] = ['en', 'fr'];
   userFullName = 'Guest';
 
   ngOnInit(): void {
-    this.loadingService.setLoading(false);
     const selectedLanguage = localStorage.getItem('selectedLanguage');
     if (selectedLanguage) {
       this.translocoService.setActiveLang(selectedLanguage);
@@ -48,20 +47,19 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(lang: string) {
-    this.loadingService.setLoading(true);
-    this.loadingService.setLoading(true);
+    this.loadingService.showLoader();
     setTimeout(() => {
+      this.loadingService.hideLoader();
       localStorage.setItem('selectedLanguage', lang);
       this.translocoService.setActiveLang(lang);
       this.currentLang = lang;
-      this.loadingService.setLoading(false);
     }, 1000);
   }
 
   logout(): void {
-    this.loadingService.setLoading(true);
+    this.loadingService.showLoader();
     setTimeout(() => {
-      this.loadingService.setLoading(false);
+      this.loadingService.hideLoader();
       this.authService.logout();
       this.router.navigate(['/auth']);
     }, 1000);

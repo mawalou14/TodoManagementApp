@@ -12,15 +12,11 @@ import { LoadinServiceService } from '../../services/loadingService/loadin.servi
 @Injectable()
 export class TokenInterceptorInterceptor implements HttpInterceptor {
   private authService = inject(AuthService);
-  private totalRequests = 0;
-  private loadingService = inject(LoadinServiceService);
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.totalRequests++;
-    this.loadingService.setLoading(true);
     const token = this.authService.getToken();
     if (request.url.includes('auth')) {
       return next.handle(request);
@@ -29,14 +25,7 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
       const reqAuth = request.clone({
         headers: request.headers.set(`Authorization`, `Bearer ${token}`),
       });
-      return next.handle(reqAuth).pipe(
-        finalize(() => {
-          this.totalRequests--;
-          if (this.totalRequests === 0) {
-            this.loadingService.setLoading(false);
-          }
-        })
-      );
+      return next.handle(reqAuth);
     }
     return next.handle(request);
   }

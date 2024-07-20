@@ -6,6 +6,4 @@ import { LoadinServiceService } from '../../services/loadingService/loadin.servi
   templateUrl: './general-loading.component.html',
   styleUrls: ['./general-loading.component.css'],
 })
-export class GeneralLoadingComponent {
-  public loadingService = inject(LoadinServiceService);
-}
+export class GeneralLoadingComponent {}

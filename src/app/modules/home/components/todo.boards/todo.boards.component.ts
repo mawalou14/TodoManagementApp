@@ -20,7 +20,6 @@ import { NotificationService } from 'src/app/modules/shared/services/notificatio
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEditTodoModalComponent } from '../../modal/add-edit-todo.modal/add-edit-todo.modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
 import { ConfirmationModalComponent } from '../../modal/confirmation.modal/confirmation.modal.component';
 
 @Component({
@@ -32,7 +31,6 @@ export class TodoBoardsComponent implements OnDestroy {
   public todoService = inject(TodoService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
-  private loadingService = inject(LoadinServiceService);
   readonly dialog = inject(MatDialog);
   @Input() todoTasks: GetTodosReponse = [];
   @Input() completedTasks: GetTodosReponse = [];
@@ -101,7 +99,6 @@ export class TodoBoardsComponent implements OnDestroy {
       .updateTodoPiority(todoToUpdatePriority)
       .subscribe({
         next: (response) => {
-          this.loadingService.setLoading(false);
           this.todoUpdated.emit();
           this.notificationService.showSuccess(
             this.translocoService.translate('todo.updatedSuccessfully'),
@@ -109,7 +106,6 @@ export class TodoBoardsComponent implements OnDestroy {
           );
         },
         error: (err) => {
-          this.loadingService.setLoading(false);
           this.notificationService.showError(
             this.translocoService.translate('register.anErrOccured'),
             this.translocoService.translate('login.error')
@@ -133,7 +129,6 @@ export class TodoBoardsComponent implements OnDestroy {
   deleteTodoAfterConfirmation(todoId: string) {
     this.updatePrioritySub = this.todoService.deleteTodo(todoId).subscribe({
       next: (response) => {
-        this.loadingService.setLoading(false);
         this.todoUpdated.emit();
         this.notificationService.showSuccess(
           this.translocoService.translate('todo.deletedSuccessfully'),
@@ -141,7 +136,6 @@ export class TodoBoardsComponent implements OnDestroy {
         );
       },
       error: (err) => {
-        this.loadingService.setLoading(false);
         this.notificationService.showError(
           this.translocoService.translate('register.anErrOccured'),
           this.translocoService.translate('login.error')

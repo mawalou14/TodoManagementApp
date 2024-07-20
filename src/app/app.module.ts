@@ -10,6 +10,8 @@ import { TokenInterceptorInterceptor } from './modules/shared/interceptors/Token
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
+import { LoadingInterceptor } from './modules/shared/interceptors/loading/loading.interceptor';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
@@ -20,6 +22,7 @@ import { NotFoundComponent } from './modules/shared/components/not-found/not-fou
     NgbModule,
     HttpClientModule,
     TranslocoRootModule,
+    SharedModule,
     ToastrModule.forRoot({
       maxOpened: 2,
       autoDismiss: true,
@@ -38,6 +41,7 @@ import { NotFoundComponent } from './modules/shared/components/not-found/not-fou
       useClass: TokenInterceptorInterceptor,
       multi: true,
     },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

@@ -8,7 +8,6 @@ import { AddEditTodoModalComponent } from './modal/add-edit-todo.modal/add-edit-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@jsverse/transloco';
-import { GeneralLoadingComponent } from '../shared/components/general-loading/general-loading.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatChipsModule } from '@angular/material/chips';
@@ -20,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ConfirmationModalComponent } from './modal/confirmation.modal/confirmation.modal.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { ConfirmationModalComponent } from './modal/confirmation.modal/confirmat
     TodosPageComponent,
     ProfilePageComponent,
     AddEditTodoModalComponent,
-    GeneralLoadingComponent,
     HeaderComponent,
     TodoBoardsComponent,
     ConfirmationModalComponent,
@@ -47,6 +46,7 @@ import { ConfirmationModalComponent } from './modal/confirmation.modal/confirmat
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
+    SharedModule,
   ],
   providers: [MatDatepickerModule],
 })

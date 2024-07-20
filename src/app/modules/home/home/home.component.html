@@ -1,4 +1,4 @@
 <div class="main-container">
-  <app-general-loading></app-general-loading>
+  <app-general-loading *ngIf="loading"></app-general-loading>
   <router-outlet></router-outlet>
 </div>
