@@ -1,6 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { LoadinServiceService } from 'src/app/modules/shared/services/loadingService/loadin.service.service';
+import { TodoService } from '../../services/todo.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +12,8 @@ import { LoadinServiceService } from 'src/app/modules/shared/services/loadingSer
 })
 export class HeaderComponent implements OnInit {
   private translocoService = inject(TranslocoService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
   loadingService = inject(LoadinServiceService);
   currentLang: string;
   supportedLangs: string[] = ['en', 'fr'];
@@ -50,6 +55,15 @@ export class HeaderComponent implements OnInit {
       this.translocoService.setActiveLang(lang);
       this.currentLang = lang;
       this.loadingService.setLoading(false);
+    }, 1000);
+  }
+
+  logout(): void {
+    this.loadingService.setLoading(true);
+    setTimeout(() => {
+      this.loadingService.setLoading(false);
+      this.authService.logout();
+      this.router.navigate(['/auth']);
     }, 1000);
   }
 }

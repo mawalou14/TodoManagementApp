@@ -13,7 +13,8 @@
     "emailIsRequired": "L'adresse e-mail est requise",
     "loading": "Chargement",
     "success": "Succés",
-    "error": "Erreur"
+    "error": "Erreur",
+    "logout": "Deconnection"
   },
 
   "register": {

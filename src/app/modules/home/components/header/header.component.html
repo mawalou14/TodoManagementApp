@@ -15,10 +15,19 @@
     </option>
   </select>
   <span
-    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-500"
+    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-500 cursor-pointer"
+    [matMenuTriggerFor]="avatarDropdown"
   >
     <span class="text-sm font-medium leading-none text-white">{{
       userFullName
     }}</span>
   </span>
+  <mat-menu #avatarDropdown="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <i
+        class="bi bi-box-arrow-right text-xl lg:text-2xl cursor-pointer text-red-500 mr-3"
+      ></i>
+      <span class="text-red-500">{{ "login.logout" | transloco }}</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

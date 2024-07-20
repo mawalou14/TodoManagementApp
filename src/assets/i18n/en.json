@@ -13,7 +13,8 @@
     "emailIsRequired": "Email is required",
     "loading": "Loading",
     "success": "Success",
-    "error": "Error"
+    "error": "Error",
+    "logout": "Logout"
   },
 
   "register": {
