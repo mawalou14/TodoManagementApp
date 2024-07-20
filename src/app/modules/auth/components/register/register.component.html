@@ -81,6 +81,11 @@
           "
         >
           <span
+            *ngIf="registerForm.get('confirmPassword').errors?.['pattern']"
+            class="error-text"
+            >Example:<b>123@Qwe</b></span
+          >
+          <span
             *ngIf="registerForm.get('confirmPassword').errors?.['mustMatch']"
             class="error-text"
             >{{ "register.mustMatch" | transloco }}</span
