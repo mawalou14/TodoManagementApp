@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -13,6 +14,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/home/home.module').then((module) => module.HomeModule),
   },
+  { path: '**', redirectTo: '/not-found' },
+  { path: 'not-found', component: NotFoundComponent },
 ];
 
 @NgModule({

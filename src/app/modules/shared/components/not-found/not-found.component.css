@@ -1,0 +1,24 @@
+
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 450px;
+  max-height: 450px;
+}
+
+a {
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+a:hover {
+  color: indigo;
+  font-weight: bold;
+}
