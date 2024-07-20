@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   listenToLoading(): void {
     this.loadingService.loadingSub.pipe(delay(0)).subscribe((loading) => {
       this.loading = loading;
-      console.log('loading', this.loading);
     });
   }
 }
