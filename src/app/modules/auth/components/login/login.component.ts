@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       },
       error: (err) => {
         this.isLoading = false;
-        // console.log(err.error.message);
         this.notificationService.showError(
           this.translocoService.translate('login.InvalidCredentials'),
           this.translocoService.translate('login.error')

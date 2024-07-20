@@ -84,7 +84,6 @@ export class RegisterComponent implements OnDestroy {
           },
           error: (err) => {
             this.isLoading = false;
-            // console.log(err.error.message);
             this.notificationService.showError(
               this.translocoService.translate('register.anErrOccured'),
               this.translocoService.translate('login.error')
