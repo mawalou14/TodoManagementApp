@@ -14,7 +14,7 @@
     "loading": "Chargement",
     "success": "Succés",
     "error": "Erreur",
-    "logout": "Deconnection"
+    "logout": "Deconnextion"
   },
 
   "register": {
@@ -64,5 +64,14 @@
     "deleteTask": "Supprimer une tâche",
 "irreversible": "Irréversible",
 "areUSreToDelTdo": "Êtes-vous sûr de vouloir supprimer la tâche"
+  },
+
+  "notFound": {
+    "notFound": "Non trouvé",
+    "thtPgeDsntExt": "Cette page n'existe pas.",
+    "hreRSmeLnkIstd": "Voici quelques liens utiles :",
+    "home": "Accueil",
+    "login": "connexion",
+    "register": "S'Enregistrer"
   }
 }

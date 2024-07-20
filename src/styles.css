@@ -16,7 +16,7 @@
   display: none;
 }
 
-html, body { height: 100%; width: 100%; }
+html, body { height: 100%; width: 100%; background-color: #ebf4ff; }
 
 .toast-top-center {
   top: 15px !important;

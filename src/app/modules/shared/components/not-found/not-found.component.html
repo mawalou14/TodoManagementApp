@@ -1,20 +1,25 @@
 <div class="page-container m-0 sm:p-0 md:p-2 mx-auto px-2 sm:px-6 lg:px-8">
   <img src="assets/images/404.png" alt="Not FOund" />
   <div class="mt-4 text-center">
-    <span class="font-extrabold text-4xl text-blue-900">404 Not Found</span
+    <span class="font-extrabold text-4xl text-blue-900"
+      >404 {{ "notFound.notFound" | transloco }}</span
     ><br />
     <span class="font-extrabold text-2xl text-gray-700"
-      >Whoops! That page doesn’t exist.</span
+      >Whoops! {{ "notFound.thtPgeDsntExt" | transloco }}</span
     >
   </div>
-  <div class="link-box-container mt-5">
+  <div class="link-box-container mt-5 text-center">
     <span class="text-lg text-gray-700"
-      >Here are some helpful links instead:
+      >{{ "notFound.hreRSmeLnkIstd" | transloco }}
     </span>
-    <div class="mt-2 w-full flex justify-around">
-      <a routerLink="/main" class="link">Home</a>
-      <a routerLink="/auth">Login</a>
-      <a routerLink="/auth/register">Register</a>
+    <div class="mt-2 w-full flex justify-between">
+      <a routerLink="/main" class="link">{{ "notFound.home" | transloco }}</a>
+      <a (click)="onMoveToAuthModule('auth')">{{
+        "notFound.login" | transloco
+      }}</a>
+      <a (click)="onMoveToAuthModule('auth/register')">{{
+        "notFound.register" | transloco
+      }}</a>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #ebf4ff;
 }
 
 img {
@@ -16,6 +17,8 @@ img {
 a {
   text-decoration: underline;
   font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
 a:hover {

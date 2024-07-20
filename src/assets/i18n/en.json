@@ -64,8 +64,15 @@
     "deleteTask": "Delete Task",
 "irreversible": "Irrevesible",
 "areUSreToDelTdo": "Are you sure you want to delete the task"
+  },
+
+  "notFound": {
+    "notFound": "Not Found",
+    "thtPgeDsntExt": "That page doesn’t exist.",
+    "hreRSmeLnkIstd": "Here are some helpful links instead:",
+    "home": "Home",
+    "login": "Login",
+    "register": "Sign up"
   }
-
-
 
 }
